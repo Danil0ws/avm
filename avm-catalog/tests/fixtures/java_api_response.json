@@ -1,0 +1,32 @@
+[
+  {
+    "id": "jdk-21.0.3+9",
+    "release_name": "jdk-21.0.3+9",
+    "release_type": "ga",
+    "vendor": "eclipse",
+    "version_data": {
+      "major": 21,
+      "minor": 0,
+      "security": 3,
+      "patch": 0,
+      "build": 9,
+      "semver": "21.0.3+9",
+      "openjdk_version": "21.0.3+9"
+    },
+    "timestamp": "2024-04-16T05:07:55Z",
+    "binary": {
+      "os": "linux",
+      "architecture": "x64",
+      "image_type": "jdk",
+      "jvm_impl": "hotspot",
+      "heap_size": "normal",
+      "package": {
+        "name": "OpenJDK21U-jdk_x64_linux_hotspot_21.0.3_9.tar.gz",
+        "link": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.3%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.3_9.tar.gz",
+        "checksum": "a4f9f22c71e82ce0e94c7ff9f57c5f2ad1aabd76c76a15e74e9ea07bdbfc3cbe",
+        "checksum_link": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.3%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.3_9.tar.gz.sha256.txt",
+        "size": 198276823
+      }
+    }
+  }
+]

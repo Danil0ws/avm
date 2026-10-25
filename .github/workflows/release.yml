@@ -1,0 +1,125 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build — ${{ matrix.target }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: x86_64-unknown-linux-gnu
+            runner: ubuntu-latest
+            binary: avm
+            archive: tar.gz
+          - target: aarch64-unknown-linux-gnu
+            runner: ubuntu-latest
+            binary: avm
+            archive: tar.gz
+            cross: true
+          - target: x86_64-apple-darwin
+            runner: macos-13
+            binary: avm
+            archive: tar.gz
+          - target: aarch64-apple-darwin
+            runner: macos-latest
+            binary: avm
+            archive: tar.gz
+          - target: x86_64-pc-windows-msvc
+            runner: windows-latest
+            binary: avm.exe
+            archive: zip
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@21dc36fb71dd22e3317045c0c31a3f4249868b17
+        with:
+          toolchain: stable
+          targets: ${{ matrix.target }}
+
+      - name: Install cross
+        if: matrix.cross
+        run: cargo install cross --git https://github.com/cross-rs/cross --rev 085092ca
+
+      - name: Cache cargo
+        uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target/
+          key: ${{ runner.os }}-${{ matrix.target }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Build (native)
+        if: ${{ !matrix.cross }}
+        run: cargo build --locked --release --target ${{ matrix.target }} -p avm
+
+      - name: Build (cross)
+        if: ${{ matrix.cross }}
+        run: cross build --locked --release --target ${{ matrix.target }} -p avm
+
+      - name: Package (tar.gz)
+        if: matrix.archive == 'tar.gz'
+        shell: bash
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          DIRNAME="avm-${VERSION}-${{ matrix.target }}"
+          mkdir -p "$DIRNAME"
+          cp "target/${{ matrix.target }}/release/${{ matrix.binary }}" "$DIRNAME/"
+          cp README.md "$DIRNAME/" 2>/dev/null || true
+          cp LICENSE "$DIRNAME/" 2>/dev/null || true
+          tar czf "${DIRNAME}.tar.gz" "$DIRNAME"
+          echo "ASSET=${DIRNAME}.tar.gz" >> $GITHUB_ENV
+
+      - name: Package (zip — Windows)
+        if: matrix.archive == 'zip'
+        shell: pwsh
+        run: |
+          $VERSION = $env:GITHUB_REF_NAME -replace '^v', ''
+          $DIRNAME = "avm-$VERSION-${{ matrix.target }}"
+          New-Item -ItemType Directory -Path $DIRNAME | Out-Null
+          Copy-Item "target/${{ matrix.target }}/release/${{ matrix.binary }}" "$DIRNAME/"
+          Copy-Item README.md "$DIRNAME/" -ErrorAction SilentlyContinue
+          Compress-Archive -Path "$DIRNAME" -DestinationPath "$DIRNAME.zip"
+          echo "ASSET=$DIRNAME.zip" >> $env:GITHUB_ENV
+
+      - name: Upload to release
+        uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191
+        with:
+          files: ${{ env.ASSET }}
+          generate_release_notes: true
+
+  checksums:
+    name: Checksums
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Download all release assets
+        uses: robinraju/release-downloader@efa4cd07bd0195e6cc65e9e30c251b49ce4d3e51
+        with:
+          tag: ${{ github.ref_name }}
+          out-file-path: assets/
+          fileName: 'avm-*'
+
+      - name: Generate SHA-256 checksums
+        run: |
+          cd assets
+          sha256sum avm-* > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+
+      - name: Upload checksums
+        uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191
+        with:
+          files: assets/SHA256SUMS.txt

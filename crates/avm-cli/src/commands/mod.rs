@@ -1,0 +1,12 @@
+pub mod available;
+pub mod catalog;
+pub mod current;
+pub mod doctor;
+pub mod exec;
+pub mod info;
+pub mod install;
+pub mod installed;
+pub mod path;
+pub mod providers;
+pub mod system;
+pub mod uninstall;

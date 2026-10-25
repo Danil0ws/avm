@@ -1,0 +1,8 @@
+{
+  "api_base": "https://api.adoptium.net/v3",
+  "distribution": "temurin",
+  "image_type": "jdk",
+  "jvm_impl": "hotspot",
+  "provider": "java",
+  "vendor": "eclipse"
+}

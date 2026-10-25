@@ -1,0 +1,10 @@
+/target/
+*.tmp
+*.log
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+*.swp
+avm-catalog/.venv/
+avm-catalog/venv/

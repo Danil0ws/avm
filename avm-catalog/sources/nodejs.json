@@ -1,0 +1,5 @@
+{
+  "dist_base": "https://nodejs.org/dist",
+  "index_url": "https://nodejs.org/dist/index.json",
+  "provider": "node"
+}

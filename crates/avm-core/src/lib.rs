@@ -1,0 +1,12 @@
+pub mod archive;
+pub mod catalog;
+pub mod config;
+pub mod download;
+pub mod environment;
+pub mod error;
+pub mod installer;
+pub mod inventory;
+pub mod paths;
+pub mod resolver;
+pub mod verification;
+pub mod version;
