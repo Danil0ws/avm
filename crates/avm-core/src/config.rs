@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 use crate::error::Result;
 
-pub const DEFAULT_CATALOG_URL: &str = "https://your-username.github.io/avm-catalog";
+pub const DEFAULT_CATALOG_URL: &str = "https://danil0ws.github.io/avm";
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct GlobalConfig {
