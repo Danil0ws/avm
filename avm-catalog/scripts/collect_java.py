@@ -6,143 +6,102 @@ import requests
 
 log = logging.getLogger(__name__)
 
-BASE_URL = "https://api.adoptium.net/v3"
+BASE_URL = "https://api.foojay.io/disco/v3.0"
+MS_DL = "https://aka.ms/download-jdk"
 TIMEOUT = 30
-OS_MAP = {"windows": "windows", "mac": "macos", "linux": "linux"}
-ARCH_MAP = {"x64": "x64", "aarch64": "arm64"}
-TARGET_COMBOS = [
-    ("windows", "x64"),
-    ("mac", "x64"),
-    ("mac", "aarch64"),
-    ("linux", "x64"),
-    ("linux", "aarch64"),
+
+# (foojay_os, foojay_arch) -> (our_os, our_arch, ms_os_name, ms_arch_name, ext)
+TARGETS = [
+    ("macos",   "x64",     "macos",   "x64",     "x64",     "tar.gz"),
+    ("macos",   "aarch64", "macos",   "arm64",   "aarch64", "tar.gz"),
+    ("windows", "x64",     "windows", "x64",     "x64",     "zip"),
+    ("windows", "aarch64", "windows", "arm64",   "aarch64", "zip"),
+    ("linux",   "x64",     "linux",   "x64",     "x64",     "tar.gz"),
+    ("linux",   "aarch64", "linux",   "arm64",   "aarch64", "tar.gz"),
 ]
 
 
-def get_available_releases() -> list:
-    url = f"{BASE_URL}/info/available_releases"
-    r = requests.get(url, timeout=TIMEOUT)
-    r.raise_for_status()
-    data = r.json()
-    majors = data.get("available_releases", [])
-    log.info(f"Available Java major versions: {majors}")
-    return majors
+def fetch_versions(foojay_os: str, foojay_arch: str) -> list[str]:
+    """Return list of java_version strings from Foojay (metadata only, no per-pkg calls)."""
+    url = (
+        f"{BASE_URL}/packages"
+        f"?distribution=microsoft&package_type=jdk&release_status=ga"
+        f"&directly_downloadable=true&operating_system={foojay_os}&architecture={foojay_arch}"
+        f"&archive_type=tar.gz&page_size=100"
+    )
+    if foojay_os == "windows":
+        url = url.replace("archive_type=tar.gz", "archive_type=zip")
 
-
-def get_releases_for_major(major: int, os: str, arch: str) -> list:
-    results = []
+    versions = []
     page = 0
     while True:
-        url = (
-            f"{BASE_URL}/assets/feature_releases/{major}/ga"
-            f"?architecture={arch}&image_type=jdk&jvm_impl=hotspot"
-            f"&os={os}&page={page}&page_size=20&release_type=ga&vendor=eclipse"
-        )
         try:
-            r = requests.get(url, timeout=TIMEOUT)
-            if r.status_code == 404:
-                break
+            r = requests.get(f"{url}&page={page}", timeout=TIMEOUT)
             r.raise_for_status()
-            data = r.json()
-            if not data:
-                break
-            results.extend(data)
-            if len(data) < 20:
+            data = r.json().get("result", [])
+            for pkg in data:
+                v = pkg.get("java_version", "")
+                tos = pkg.get("term_of_support", "")
+                if v:
+                    versions.append((v, tos == "lts"))
+            if len(data) < 100:
                 break
             page += 1
-            time.sleep(0.2)
+            time.sleep(0.1)
         except requests.RequestException as e:
-            log.warning(f"Error fetching Java {major} {os}/{arch}: {e}")
+            log.warning(f"Error fetching versions for {foojay_os}/{foojay_arch}: {e}")
             break
-    return results
+    return versions
 
 
-def parse_release_asset(asset: dict) -> Optional[dict]:
-    """Parse a single Adoptium API asset into our catalog format."""
+def fetch_sha256(url: str) -> Optional[str]:
     try:
-        binary = asset.get("binary", {})
-        package = binary.get("package", {})
-        version_data = asset.get("version_data", {})
-
-        os_raw = binary.get("os", "")
-        arch_raw = binary.get("architecture", "")
-
-        os_mapped = OS_MAP.get(os_raw)
-        arch_mapped = ARCH_MAP.get(arch_raw)
-        if not os_mapped or not arch_mapped:
-            return None
-
-        url = package.get("link", "")
-        sha256 = package.get("checksum", "")
-        size = package.get("size")
-
-        if not url or not sha256:
-            return None
-
-        name = package.get("name", url.split("/")[-1])
-        if name.endswith(".zip"):
-            archive_type = "zip"
-        elif name.endswith(".tar.gz"):
-            archive_type = "tar.gz"
-        else:
-            archive_type = "tar.gz"
-
-        version_str = version_data.get("semver", asset.get("release_name", ""))
-        if version_str.startswith("jdk-"):
-            version_str = version_str[4:]
-
-        timestamp = asset.get("timestamp", "")
-        release_date = timestamp[:10] if timestamp else None
-
-        return {
-            "version": version_str,
-            "distribution": "temurin",
-            "release_date": release_date,
-            "channel": "ga",
-            "artifacts": [
-                {
-                    "os": os_mapped,
-                    "arch": arch_mapped,
-                    "archive_type": archive_type,
-                    "url": url,
-                    "sha256": sha256.lower(),
-                    "size_bytes": size,
-                }
-            ],
-        }
-    except Exception as e:
-        log.warning(f"Error parsing asset: {e}")
-        return None
+        r = requests.get(f"{url}.sha256sum.txt", timeout=TIMEOUT)
+        if r.status_code == 200:
+            token = r.text.strip().split()[0]
+            return token.lower() if len(token) == 64 else None
+    except Exception:
+        pass
+    return None
 
 
-def collect() -> list:
-    """Collect all Java versions from Adoptium API."""
-    majors = get_available_releases()
-    versions_by_key = {}
+def collect() -> dict:
+    versions: dict = {}
 
-    for major in majors:
-        for os, arch in TARGET_COMBOS:
-            log.info(f"Fetching Java {major} {os}/{arch}...")
-            assets = get_releases_for_major(major, os, arch)
-            for asset in assets:
-                parsed = parse_release_asset(asset)
-                if parsed:
-                    art = parsed["artifacts"][0]
-                    key = (parsed["version"], art["os"], art["arch"])
-                    if key not in versions_by_key:
-                        versions_by_key[key] = parsed
+    for foojay_os, foojay_arch, our_os, our_arch, ms_arch, ext in TARGETS:
+        ver_list = fetch_versions(foojay_os, foojay_arch)
+        log.info(f"Found {len(ver_list)} versions for {foojay_os}/{foojay_arch}")
 
-    merged = {}
-    for parsed in versions_by_key.values():
-        v = parsed["version"]
-        if v not in merged:
-            merged[v] = {
-                "version": v,
-                "distribution": parsed["distribution"],
-                "release_date": parsed["release_date"],
-                "channel": parsed["channel"],
-                "artifacts": [],
+        for java_version, is_lts in ver_list:
+            ms_os = foojay_os  # "macos", "linux", "windows" match Microsoft naming
+            filename = f"microsoft-jdk-{java_version}-{ms_os}-{ms_arch}.{ext}"
+            url = f"{MS_DL}/{filename}"
+            sha256 = fetch_sha256(url)
+
+            artifact = {
+                "os": our_os,
+                "arch": our_arch,
+                "archive_type": ext,
+                "url": url,
+                "sha256": sha256,
+                "size_bytes": None,
             }
-        merged[v]["artifacts"].extend(parsed["artifacts"])
 
-    return list(merged.values())
+            if java_version not in versions:
+                versions[java_version] = {
+                    "version": java_version,
+                    "release_date": None,
+                    "lts": is_lts,
+                    "distribution": "microsoft",
+                    "artifacts": [],
+                }
+
+            versions[java_version]["artifacts"].append(artifact)
+            time.sleep(0.05)
+
+    sorted_versions = sorted(
+        versions.values(),
+        key=lambda v: [int(x) for x in v["version"].split(".")],
+        reverse=True,
+    )
+    return {"versions": sorted_versions}
