@@ -42,12 +42,14 @@ pub fn run(spec: &str, os: Option<&str>, arch: Option<&str>) -> anyhow::Result<(
     let install_path = install(&plan)?;
 
     match tool.as_str() {
-        "java" => {
-            let _ = avm_providers::java::verify_installation(&install_path);
-        }
-        "node" => {
-            let _ = avm_providers::node::verify_installation(&install_path);
-        }
+        "java" => { let _ = avm_providers::java::verify_installation(&install_path); }
+        "node" => { let _ = avm_providers::node::verify_installation(&install_path); }
+        "go" => { let _ = avm_providers::go::verify_installation(&install_path); }
+        "python" => { let _ = avm_providers::python::verify_installation(&install_path); }
+        "dotnet" => { let _ = avm_providers::dotnet::verify_installation(&install_path); }
+        "php" => { let _ = avm_providers::php::verify_installation(&install_path); }
+        "ruby" => { let _ = avm_providers::ruby::verify_installation(&install_path); }
+        "rust" => { let _ = avm_providers::rust_toolchain::verify_installation(&install_path); }
         _ => {}
     }
 

@@ -39,6 +39,12 @@ pub fn run(args: &[String]) -> anyhow::Result<()> {
     let env_vars: HashMap<String, String> = match vs.as_ref().map(|v| v.tool.as_str()) {
         Some("java") => environment::build_env_for_java(&install_path),
         Some("node") => environment::build_env_for_node(&install_path),
+        Some("go") => avm_providers::go::build_environment(&install_path),
+        Some("python") => avm_providers::python::build_environment(&install_path),
+        Some("dotnet") => avm_providers::dotnet::build_environment(&install_path),
+        Some("php") => avm_providers::php::build_environment(&install_path),
+        Some("ruby") => avm_providers::ruby::build_environment(&install_path),
+        Some("rust") => avm_providers::rust_toolchain::build_environment(&install_path),
         _ => HashMap::new(),
     };
 
@@ -87,6 +93,12 @@ fn infer_tool(cmd: &str) -> Option<&'static str> {
     match cmd {
         "java" | "javac" | "jar" | "javap" | "jshell" => Some("java"),
         "node" | "npm" | "npx" | "corepack" => Some("node"),
+        "go" | "gofmt" => Some("go"),
+        "python" | "python3" | "pip" | "pip3" => Some("python"),
+        "dotnet" => Some("dotnet"),
+        "php" | "composer" => Some("php"),
+        "ruby" | "gem" | "bundle" | "irb" => Some("ruby"),
+        "rustc" | "cargo" | "rustup" | "rustfmt" => Some("rust"),
         _ => None,
     }
 }
@@ -111,7 +123,21 @@ fn find_executable(
             install_path.join(cmd),
             install_path.join("bin").join(format!("{}.exe", cmd)),
         ],
-        _ => vec![install_path.join("bin").join(cmd)],
+        ("dotnet", false) => vec![install_path.join(cmd)],
+        ("dotnet", true) => vec![
+            install_path.join(format!("{}.exe", cmd)),
+            install_path.join(cmd),
+        ],
+        ("php", true) => vec![
+            install_path.join(format!("{}.exe", cmd)),
+            install_path.join(cmd),
+        ],
+        (_, false) => vec![install_path.join("bin").join(cmd)],
+        (_, true) => vec![
+            install_path.join("bin").join(format!("{}.exe", cmd)),
+            install_path.join("bin").join(cmd),
+            install_path.join(format!("{}.exe", cmd)),
+        ],
     };
     candidates.into_iter().find(|p| p.exists())
 }
