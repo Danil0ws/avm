@@ -1,8 +1,14 @@
 {
-  "generated_at": "2025-10-25T00:00:00Z",
+  "generated_at": "2026-10-26T13:22:43.090747Z",
   "schema_version": 1,
   "tools": [
-    {"name": "java", "path": "tools/java.json"},
-    {"name": "node", "path": "tools/node.json"}
+    {
+      "name": "java",
+      "path": "tools/java.json"
+    },
+    {
+      "name": "node",
+      "path": "tools/node.json"
+    }
   ]
 }
