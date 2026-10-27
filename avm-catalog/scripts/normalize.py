@@ -52,6 +52,6 @@ def normalize_catalog(versions: list) -> list:
     for v in versions:
         v["version"] = normalize_version(v["version"])
         for art in v.get("artifacts", []):
-            art["sha256"] = art.get("sha256", "").lower()
+            art["sha256"] = (art.get("sha256") or "").lower()
     versions = deduplicate(sort_versions(versions))
     return versions

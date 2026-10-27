@@ -83,10 +83,21 @@ def preserve_existing_sha(versions: list, previous: dict) -> list:
     return versions
 
 
-def collect_tool(tool: str, max_versions=None) -> list:
+def build_sha_index(previous: dict) -> dict:
+    """Build {(version, os, arch): sha256} from a previous catalog for fast lookup."""
+    index: dict[tuple, str] = {}
+    for v in previous.get("versions", []):
+        for art in v.get("artifacts", []):
+            sha = art.get("sha256", "")
+            if sha and re.match(r"^[0-9a-f]{64}$", sha):
+                index[(v["version"], art.get("os"), art.get("arch"))] = sha
+    return index
+
+
+def collect_tool(tool: str, max_versions=None, previous_sha: dict | None = None) -> list:
     if tool == "java":
         from collect_java import collect
-        return collect()
+        return collect(previous_sha=previous_sha).get("versions", [])
     elif tool == "node":
         from collect_node import collect
         return collect(max_versions=max_versions)
@@ -145,7 +156,8 @@ def main():
         try:
             log.info(f"Collecting {tool}...")
             previous = load_previous(prev_path)
-            versions = collect_tool(tool, max_versions=args.max_versions)
+            sha_index = build_sha_index(previous)
+            versions = collect_tool(tool, max_versions=args.max_versions, previous_sha=sha_index)
 
             versions = preserve_existing_sha(versions, previous)
             versions = normalize_catalog(versions)

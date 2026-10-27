@@ -1,5 +1,6 @@
 import logging
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Optional
 
 import requests
@@ -32,19 +33,24 @@ def fetch_versions(foojay_os: str, foojay_arch: str) -> list[str]:
     if foojay_os == "windows":
         url = url.replace("archive_type=tar.gz", "archive_type=zip")
 
-    versions = []
+    versions: list[tuple[str, bool]] = []
+    seen: set[str] = set()
     page = 0
     while True:
         try:
             r = requests.get(f"{url}&page={page}", timeout=TIMEOUT)
             r.raise_for_status()
             data = r.json().get("result", [])
+            new_count = 0
             for pkg in data:
                 v = pkg.get("java_version", "")
                 tos = pkg.get("term_of_support", "")
-                if v:
+                if v and v not in seen:
+                    seen.add(v)
                     versions.append((v, tos == "lts"))
-            if len(data) < 100:
+                    new_count += 1
+            # Stop when no new versions or page returned less than a full page
+            if new_count == 0 or len(data) < 100:
                 break
             page += 1
             time.sleep(0.1)
@@ -65,43 +71,86 @@ def fetch_sha256(url: str) -> Optional[str]:
     return None
 
 
-def collect() -> dict:
+def collect(previous_sha: dict | None = None) -> dict:
+    """Collect Java versions.
+
+    previous_sha: {(version, os, arch): sha256} — skips fetch for known entries.
+    """
+    previous_sha = previous_sha or {}
     versions: dict = {}
 
+    # Build all (target, version, is_lts) work items first
+    work_items: list[tuple] = []
     for foojay_os, foojay_arch, our_os, our_arch, ms_arch, ext in TARGETS:
         ver_list = fetch_versions(foojay_os, foojay_arch)
         log.info(f"Found {len(ver_list)} versions for {foojay_os}/{foojay_arch}")
-
         for java_version, is_lts in ver_list:
-            ms_os = foojay_os  # "macos", "linux", "windows" match Microsoft naming
+            ms_os = foojay_os
             filename = f"microsoft-jdk-{java_version}-{ms_os}-{ms_arch}.{ext}"
             url = f"{MS_DL}/{filename}"
-            sha256 = fetch_sha256(url)
+            work_items.append((java_version, is_lts, our_os, our_arch, ext, url))
 
-            artifact = {
-                "os": our_os,
-                "arch": our_arch,
-                "archive_type": ext,
-                "url": url,
-                "sha256": sha256,
-                "size_bytes": None,
+    # Separate known (SHA already cached) from new (need HTTP fetch)
+    known: list[tuple] = []
+    to_fetch: list[tuple] = []
+    for item in work_items:
+        java_version, _, our_os, our_arch, _, _ = item
+        if (java_version, our_os, our_arch) in previous_sha:
+            known.append(item)
+        else:
+            to_fetch.append(item)
+
+    log.info(f"SHA cache: {len(known)} hits, {len(to_fetch)} to fetch")
+
+    # Parallel SHA fetch for new entries
+    fetched_sha: dict[tuple, Optional[str]] = {}
+
+    def _fetch(item: tuple) -> tuple[tuple, Optional[str]]:
+        java_version, _, our_os, our_arch, _, url = item
+        return (java_version, our_os, our_arch), fetch_sha256(url)
+
+    with ThreadPoolExecutor(max_workers=20) as pool:
+        futures = {pool.submit(_fetch, item): item for item in to_fetch}
+        for future in as_completed(futures):
+            key, sha = future.result()
+            fetched_sha[key] = sha
+
+    # Assemble versions dict
+    for item in work_items:
+        java_version, is_lts, our_os, our_arch, ext, url = item
+        key = (java_version, our_os, our_arch)
+        sha256 = previous_sha.get(key) or fetched_sha.get(key)
+
+        artifact = {
+            "os": our_os,
+            "arch": our_arch,
+            "archive_type": ext,
+            "url": url,
+            "sha256": sha256,
+            "size_bytes": None,
+        }
+
+        if java_version not in versions:
+            versions[java_version] = {
+                "version": java_version,
+                "release_date": None,
+                "lts": is_lts,
+                "distribution": "microsoft",
+                "artifacts": [],
             }
 
-            if java_version not in versions:
-                versions[java_version] = {
-                    "version": java_version,
-                    "release_date": None,
-                    "lts": is_lts,
-                    "distribution": "microsoft",
-                    "artifacts": [],
-                }
+        versions[java_version]["artifacts"].append(artifact)
 
-            versions[java_version]["artifacts"].append(artifact)
-            time.sleep(0.05)
+    def _sort_key(v: dict) -> list[int]:
+        clean = v["version"].split("+")[0]
+        parts = clean.split(".")
+        result = []
+        for p in parts:
+            try:
+                result.append(int(p))
+            except ValueError:
+                result.append(0)
+        return result
 
-    sorted_versions = sorted(
-        versions.values(),
-        key=lambda v: [int(x) for x in v["version"].split(".")],
-        reverse=True,
-    )
+    sorted_versions = sorted(versions.values(), key=_sort_key, reverse=True)
     return {"versions": sorted_versions}
