@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-27T18:25:10.079072Z",
+  "generated_at": "2026-10-27T18:28:32.435033Z",
   "schema_version": 1,
   "tools": {
     "dotnet": {
-      "generated_at": "2026-10-27T18:09:54.320885Z",
+      "generated_at": "2026-10-27T18:25:26.131107Z",
       "schema_version": 1,
       "source": "dotnet.microsoft.com",
       "tool": "dotnet",
@@ -59,7 +59,7 @@
       ]
     },
     "flutter": {
-      "generated_at": "2026-10-27T18:09:52.243018Z",
+      "generated_at": "2026-10-27T18:25:24.137376Z",
       "schema_version": 1,
       "source": "storage.googleapis.com/flutter_infra_release",
       "tool": "flutter",
@@ -7474,7 +7474,7 @@
       "versions": []
     },
     "node": {
-      "generated_at": "2026-10-27T18:12:33.734235Z",
+      "generated_at": "2026-10-27T18:28:19.477271Z",
       "schema_version": 1,
       "source": "nodejs.org",
       "tool": "node",
@@ -38202,7 +38202,7 @@
       ]
     },
     "ruby": {
-      "generated_at": "2026-10-27T18:09:51.889839Z",
+      "generated_at": "2026-10-27T18:25:26.971371Z",
       "schema_version": 1,
       "source": "cache.ruby-lang.org",
       "tool": "ruby",
