@@ -116,7 +116,7 @@ checksum = "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53"
 
 [[package]]
 name = "avm"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "avm-core",
@@ -130,7 +130,7 @@ dependencies = [
 
 [[package]]
 name = "avm-core"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "chrono",
@@ -153,7 +153,7 @@ dependencies = [
 
 [[package]]
 name = "avm-providers"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "avm-core",
@@ -1351,9 +1351,9 @@ checksum = "6b1e7f9a428571be2dc5bc0505c13fb6bf936822b894ec87abf8a08a4e51742d"
 
 [[package]]
 name = "rustix"
-version = "1.1.5"
+version = "1.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "891efababe418670775f199f0d233d84843c227a0949a883ce15b37c78d6629d"
+checksum = "e5e76742e5294153d4dde1207dbec5bdd81eef6fabdc0d2118babadabfd858aa"
 dependencies = [
  "bitflags",
  "errno",
