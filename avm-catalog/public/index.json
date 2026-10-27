@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T22:57:35.001008Z",
+  "generated_at": "2026-10-27T23:03:31.898341Z",
   "schema_version": 1,
   "tools": [
     {
@@ -11,6 +11,10 @@
       "path": "tools/flutter.json"
     },
     {
+      "name": "go",
+      "path": "tools/go.json"
+    },
+    {
       "name": "java",
       "path": "tools/java.json"
     },
@@ -19,8 +23,16 @@
       "path": "tools/node.json"
     },
     {
+      "name": "python",
+      "path": "tools/python.json"
+    },
+    {
       "name": "ruby",
       "path": "tools/ruby.json"
+    },
+    {
+      "name": "rust",
+      "path": "tools/rust.json"
     }
   ]
 }

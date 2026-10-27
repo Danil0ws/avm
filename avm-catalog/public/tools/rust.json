@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-10-27T23:00:41.676177Z",
+  "schema_version": 1,
+  "source": "static.rust-lang.org",
+  "tool": "rust",
+  "versions": [
+    {
+      "artifacts": [
+        {
+          "arch": "arm64",
+          "archive_type": "tar.xz",
+          "os": "macos",
+          "sha256": "30976378b6aaefd1861ba475905c6ba22a44c981418ce52285006af26337f98c",
+          "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-aarch64-apple-darwin.tar.xz"
+        },
+        {
+          "arch": "arm64",
+          "archive_type": "tar.xz",
+          "os": "windows",
+          "sha256": "796aef075f91f8cf433df1e30817d7b16e07714dda5b9b6a9e32eddbadff3296",
+          "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-aarch64-pc-windows-msvc.tar.xz"
+        },
+        {
+          "arch": "arm64",
+          "archive_type": "tar.xz",
+          "os": "linux",
+          "sha256": "a48fb1e853be56ce9b8e2751f5464dbd5e16440cd81e237920f3a5e7e806333e",
+          "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "tar.xz",
+          "os": "macos",
+          "sha256": "13b237d0294bad3bb7b18d559517947ed8348ea25812fa3b468c904996f80e34",
+          "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-x86_64-apple-darwin.tar.xz"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "tar.xz",
+          "os": "windows",
+          "sha256": "4048445c5fa6fae8d5ca1a956e42c37ac2bdd1456c5f56a1139c0b074a7d1f6c",
+          "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-x86_64-pc-windows-msvc.tar.xz"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "tar.xz",
+          "os": "linux",
+          "sha256": "231fcae47ee950621374725b5fc3b5441d2fbda2955ac45dd7dc816d8876cfe7",
+          "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-x86_64-unknown-linux-gnu.tar.xz"
+        }
+      ],
+      "version": "1.99.1"
+    }
+  ]
+}
