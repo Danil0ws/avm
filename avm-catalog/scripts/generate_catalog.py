@@ -3,6 +3,7 @@
 import argparse
 import json
 import logging
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -45,28 +46,90 @@ def generate_tool_catalog(tool: str, versions: list, source: str) -> dict:
     }
 
 
-def collect_java():
-    from collect_java import collect
-    return collect()
+ALL_TOOLS = ["java", "node", "go", "python", "dotnet", "ruby", "rust", "flutter"]
+
+SOURCE_MAP = {
+    "java": "adoptium.net",
+    "node": "nodejs.org",
+    "go": "go.dev",
+    "python": "python.org",
+    "dotnet": "dotnet.microsoft.com",
+    "ruby": "cache.ruby-lang.org",
+    "rust": "static.rust-lang.org",
+    "flutter": "storage.googleapis.com/flutter_infra_release",
+}
 
 
-def collect_node(max_versions=None):
-    from collect_node import collect
-    return collect(max_versions=max_versions)
+def preserve_existing_sha(versions: list, previous: dict) -> list:
+    """Fill missing sha256 values from previous catalog to avoid re-fetching."""
+    prev_versions = previous.get("versions", [])
+    if not prev_versions:
+        return versions
+    # Build index: (version, os, arch) -> sha256
+    prev_index: dict[tuple, str] = {}
+    for v in prev_versions:
+        for art in v.get("artifacts", []):
+            sha = art.get("sha256", "")
+            if sha and re.match(r"^[0-9a-f]{64}$", sha):
+                key = (v["version"], art.get("os"), art.get("arch"))
+                prev_index[key] = sha
+    for v in versions:
+        for art in v.get("artifacts", []):
+            if art.get("sha256"):
+                continue
+            key = (v["version"], art.get("os"), art.get("arch"))
+            if key in prev_index:
+                art["sha256"] = prev_index[key]
+    return versions
+
+
+def collect_tool(tool: str, max_versions=None) -> list:
+    if tool == "java":
+        from collect_java import collect
+        return collect()
+    elif tool == "node":
+        from collect_node import collect
+        return collect(max_versions=max_versions)
+    elif tool == "go":
+        from collect_go import collect
+        result = collect()
+        return result.get("versions", [])
+    elif tool == "python":
+        from collect_python import collect
+        result = collect()
+        return result.get("versions", [])
+    elif tool == "dotnet":
+        from collect_dotnet import collect
+        result = collect()
+        return result.get("versions", [])
+    elif tool == "ruby":
+        from collect_ruby import collect
+        result = collect()
+        return result.get("versions", [])
+    elif tool == "rust":
+        from collect_rust_toolchain import collect
+        result = collect()
+        return result.get("versions", [])
+    elif tool == "flutter":
+        from collect_flutter import collect
+        result = collect()
+        return result.get("versions", [])
+    else:
+        raise ValueError(f"Unknown tool: {tool}")
 
 
 def main():
     parser = argparse.ArgumentParser(description="Generate AVM catalog")
     parser.add_argument("--output-dir", default="public", help="Output directory")
     parser.add_argument("--previous-dir", default=None, help="Previous catalog directory")
-    parser.add_argument("--tool", default="all", choices=["all", "java", "node"])
+    parser.add_argument("--tool", default="all", choices=["all"] + ALL_TOOLS)
     parser.add_argument("--max-versions", type=int, default=None, help="Limit versions (for testing)")
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
     schema_path = output_dir / "schema" / "catalog.schema.json"
 
-    tools_to_collect = ["java", "node"] if args.tool == "all" else [args.tool]
+    tools_to_collect = ALL_TOOLS if args.tool == "all" else [args.tool]
 
     results = {}
     errors = []
@@ -81,16 +144,14 @@ def main():
 
         try:
             log.info(f"Collecting {tool}...")
-            if tool == "java":
-                versions = collect_java()
-            else:
-                versions = collect_node(max_versions=args.max_versions)
+            previous = load_previous(prev_path)
+            versions = collect_tool(tool, max_versions=args.max_versions)
 
+            versions = preserve_existing_sha(versions, previous)
             versions = normalize_catalog(versions)
             log.info(f"Collected {len(versions)} {tool} versions")
 
-            source_map = {"java": "adoptium.net", "node": "nodejs.org"}
-            catalog = generate_tool_catalog(tool, versions, source_map[tool])
+            catalog = generate_tool_catalog(tool, versions, SOURCE_MAP.get(tool, tool))
 
             if schema_path.exists():
                 errs = validate_catalog(catalog, str(schema_path))
@@ -118,7 +179,7 @@ def main():
         "schema_version": SCHEMA_VERSION,
         "tools": [
             {"name": t, "path": f"tools/{t}.json"}
-            for t in ["java", "node"]
+            for t in ALL_TOOLS
             if (output_dir / "tools" / f"{t}.json").exists()
         ],
     }
