@@ -18,12 +18,12 @@ CHANNEL_URLS = {
 }
 
 OS_MAP = {
-    "x86_64-unknown-linux-gnu": ("linux", "x86_64"),
-    "aarch64-unknown-linux-gnu": ("linux", "aarch64"),
-    "x86_64-apple-darwin": ("macos", "x86_64"),
-    "aarch64-apple-darwin": ("macos", "aarch64"),
-    "x86_64-pc-windows-msvc": ("windows", "x86_64"),
-    "aarch64-pc-windows-msvc": ("windows", "aarch64"),
+    "x86_64-unknown-linux-gnu": ("linux", "x64"),
+    "aarch64-unknown-linux-gnu": ("linux", "arm64"),
+    "x86_64-apple-darwin": ("macos", "x64"),
+    "aarch64-apple-darwin": ("macos", "arm64"),
+    "x86_64-pc-windows-msvc": ("windows", "x64"),
+    "aarch64-pc-windows-msvc": ("windows", "arm64"),
 }
 
 
@@ -52,17 +52,18 @@ def parse_channel(data: dict[str, Any], channel: str) -> list[dict[str, Any]]:
         if target not in OS_MAP:
             continue
         os_name, arch = OS_MAP[target]
+        use_xz = bool(info.get("xz_url"))
         url = info.get("xz_url") or info.get("url", "")
         sha256 = info.get("xz_hash") or info.get("hash", "")
-        filename = url.split("/")[-1] if url else ""
         if not (url and sha256):
             continue
+        archive_type = "tar.xz" if use_xz else "tar.gz"
         artifacts.append({
             "url": url,
             "sha256": sha256,
             "os": os_name,
             "arch": arch,
-            "filename": filename,
+            "archive_type": archive_type,
         })
 
     if not artifacts:

@@ -10,14 +10,11 @@ OS_MAP = {
     "linux": "linux",
     "darwin": "macos",
     "windows": "windows",
-    "freebsd": "freebsd",
 }
 
 ARCH_MAP = {
-    "amd64": "x86_64",
-    "arm64": "aarch64",
-    "386": "x86",
-    "arm": "arm",
+    "amd64": "x64",
+    "arm64": "arm64",
 }
 
 
@@ -50,12 +47,13 @@ def parse_releases(raw: list[dict[str, Any]]) -> list[dict[str, Any]]:
             mapped_arch = ARCH_MAP.get(goarch)
             if not (mapped_os and mapped_arch):
                 continue
+            archive_type = "zip" if mapped_os == "windows" else "tar.gz"
             artifacts.append({
                 "url": f"https://dl.google.com/go/{filename}",
                 "sha256": sha256,
                 "os": mapped_os,
                 "arch": mapped_arch,
-                "filename": filename,
+                "archive_type": archive_type,
             })
 
         if artifacts:

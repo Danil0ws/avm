@@ -32,16 +32,9 @@ def parse_version(name: str) -> str | None:
 
 
 def collect() -> dict[str, Any]:
-    releases = fetch_releases()
-    seen: set[str] = set()
-    versions: list[dict[str, Any]] = []
-    for rel in releases:
-        version = parse_version(rel.get("name", ""))
-        if not version or version in seen:
-            continue
-        seen.add(version)
-        versions.append({"version": version, "artifacts": []})
-    return {"tool": "python", "versions": versions}
+    # python.org API does not expose SHA-256 for pre-built binaries; skip until
+    # a source with checksums is available.
+    return {"tool": "python", "versions": []}
 
 
 if __name__ == "__main__":
