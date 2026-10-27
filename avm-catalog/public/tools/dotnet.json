@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-10-27T16:30:35.466488Z",
+  "schema_version": 1,
+  "source": "dotnet.microsoft.com",
+  "tool": "dotnet",
+  "versions": [
+    {
+      "artifacts": [],
+      "version": "11.0.0-rc.3"
+    },
+    {
+      "artifacts": [],
+      "version": "11.0.0-rc.2"
+    },
+    {
+      "artifacts": [],
+      "version": "11.0.0-rc.1"
+    },
+    {
+      "artifacts": [],
+      "version": "10.0.14"
+    },
+    {
+      "artifacts": [],
+      "version": "10.0.13"
+    },
+    {
+      "artifacts": [],
+      "version": "10.0.12"
+    },
+    {
+      "artifacts": [],
+      "version": "9.0.22"
+    },
+    {
+      "artifacts": [],
+      "version": "9.0.21"
+    },
+    {
+      "artifacts": [],
+      "version": "9.0.20"
+    },
+    {
+      "artifacts": [],
+      "version": "8.0.33"
+    },
+    {
+      "artifacts": [],
+      "version": "8.0.32"
+    },
+    {
+      "artifacts": [],
+      "version": "8.0.31"
+    }
+  ]
+}

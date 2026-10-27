@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-10-26T17:13:44.949405Z",
+  "generated_at": "2026-10-27T16:45:53.496510Z",
   "schema_version": 1,
   "tools": [
+    {
+      "name": "dotnet",
+      "path": "tools/dotnet.json"
+    },
+    {
+      "name": "flutter",
+      "path": "tools/flutter.json"
+    },
     {
       "name": "java",
       "path": "tools/java.json"
@@ -9,6 +17,10 @@
     {
       "name": "node",
       "path": "tools/node.json"
+    },
+    {
+      "name": "ruby",
+      "path": "tools/ruby.json"
     }
   ]
 }

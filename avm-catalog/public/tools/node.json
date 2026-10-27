@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T17:13:44.782759Z",
+  "generated_at": "2026-10-27T16:33:10.015144Z",
   "schema_version": 1,
   "source": "nodejs.org",
   "tool": "node",
@@ -29003,6 +29003,22 @@
       "distribution": null,
       "release_date": "2015-06-22",
       "version": "0.12.5"
+    },
+    {
+      "artifacts": [
+        {
+          "arch": "x64",
+          "archive_type": "tar.gz",
+          "os": "macos",
+          "sha256": "757d1a2e7d3deb03b40277e9f04ae276c370b53e6e5238d44e08846f1f3c85c2",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v0.12.4/node-v0.12.4-darwin-x64.tar.gz"
+        }
+      ],
+      "channel": "current",
+      "distribution": null,
+      "release_date": "2015-05-23",
+      "version": "0.12.4"
     },
     {
       "artifacts": [
