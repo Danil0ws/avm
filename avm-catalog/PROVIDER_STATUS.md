@@ -35,6 +35,7 @@ Status matrix for runtime providers across AVM components.
 | `dotnet` | `collect_dotnet.py` | 🔶 | Microsoft releases | Uses SHA-512, not SHA-256; metadata only |
 | `ruby` | `collect_ruby.py` | ✅ | ruby-lang.org | Source tarballs only (no portable binaries) |
 | `rust` | `collect_rust_toolchain.py` | ✅ | static.rust-lang.org | Stable channel; requires `tomli` on Python < 3.11 |
+| `flutter` | `collect_flutter.py` | ✅ | storage.googleapis.com/flutter_infra_release | Stable channel; SHA-256 inline in API |
 | `php` | 🚧 | 🚧 | windows.php.net / source | No official portable Linux binaries |
 
 ## Artifact Availability by Platform
@@ -48,6 +49,7 @@ Status matrix for runtime providers across AVM components.
 | dotnet | 🔶 | 🔶 | 🔶 | 🔶 | 🔶 |
 | ruby | source | source | source | source | source |
 | rust | ✅ | ✅ | ✅ | ✅ | ✅ |
+| flutter | ✅ | ✅ | ✅ | ✅ | ✅ |
 | php | 🚧 | 🚧 | 🚧 | 🚧 | 🚧 |
 
 ## Security Constraints

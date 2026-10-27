@@ -22,9 +22,13 @@ permissions:
 
 jobs:
   collect:
-    name: Collect & validate
+    name: Collect ${{ matrix.tool }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        tool: [java, node, go, python, dotnet, ruby, rust, flutter]
+      fail-fast: false
     defaults:
       run:
         working-directory: avm-catalog
@@ -41,39 +45,87 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Collect Java catalog
-        run: python scripts/generate_catalog.py --tool java --output-dir public --previous-dir public
-        continue-on-error: true
-        id: java
+      - name: Collect ${{ matrix.tool }}
+        run: python scripts/generate_catalog.py --tool ${{ matrix.tool }} --output-dir public --previous-dir public
+        id: collect
 
-      - name: Collect Node.js catalog
-        run: python scripts/generate_catalog.py --tool node --output-dir public --previous-dir public
-        continue-on-error: true
-        id: node
+      - name: Validate
+        if: steps.collect.outcome == 'success'
+        run: python scripts/validate.py public/tools/${{ matrix.tool }}.json public/schema/catalog.schema.json
 
-      - name: Validate Java
-        if: steps.java.outcome == 'success'
-        run: python scripts/validate.py public/tools/java.json public/schema/catalog.schema.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: catalog-${{ matrix.tool }}
+          path: avm-catalog/public/tools/${{ matrix.tool }}.json
+          if-no-files-found: warn
 
-      - name: Validate Node.js
-        if: steps.node.outcome == 'success'
-        run: python scripts/validate.py public/tools/node.json public/schema/catalog.schema.json
+  commit:
+    name: Commit & Deploy
+    needs: collect
+    if: always()
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: avm-catalog
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: catalog-*
+          path: avm-catalog/public/tools/
+          merge-multiple: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Regenerate index & catalog.json
+        run: |
+          python - <<'EOF'
+          import json, glob, os
+          from datetime import datetime, timezone
+
+          SCHEMA_VERSION = 1
+          tools_dir = "public/tools"
+          now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+          tool_files = sorted(glob.glob(f"{tools_dir}/*.json"))
+          tools = []
+          combined = {}
+          for f in tool_files:
+              name = os.path.basename(f).replace(".json", "")
+              tools.append({"name": name, "path": f"tools/{name}.json"})
+              with open(f) as fh:
+                  combined[name] = json.load(fh)
+
+          index = {"generated_at": now, "schema_version": SCHEMA_VERSION, "tools": tools}
+          with open("public/index.json", "w") as fh:
+              json.dump(index, fh, indent=2, sort_keys=True)
+
+          catalog = {"generated_at": now, "schema_version": SCHEMA_VERSION, "tools": combined}
+          with open("public/catalog.json", "w") as fh:
+              json.dump(catalog, fh, indent=2, sort_keys=True)
+
+          print(f"Index: {len(tools)} tools")
+          EOF
 
       - name: Summary
         run: |
           echo "## Catalog Update" >> $GITHUB_STEP_SUMMARY
           echo "| Tool | Status |" >> $GITHUB_STEP_SUMMARY
           echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
-          if [ "${{ steps.java.outcome }}" = "success" ]; then
-            echo "| Java | ✅ |" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "| Java | ❌ (previous data kept) |" >> $GITHUB_STEP_SUMMARY
-          fi
-          if [ "${{ steps.node.outcome }}" = "success" ]; then
-            echo "| Node.js | ✅ |" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "| Node.js | ❌ (previous data kept) |" >> $GITHUB_STEP_SUMMARY
-          fi
+          for tool in java node go python dotnet ruby rust flutter; do
+            if [ -f "public/tools/${tool}.json" ]; then
+              echo "| ${tool} | ✅ |" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "| ${tool} | ❌ (not collected) |" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
 
       - name: Commit catalog if changed
         run: |
@@ -85,7 +137,7 @@ jobs:
 
   deploy-pages:
     name: Deploy to GitHub Pages
-    needs: collect
+    needs: commit
     runs-on: ubuntu-latest
     environment:
       name: github-pages

@@ -3,6 +3,7 @@
 import argparse
 import json
 import logging
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -45,7 +46,7 @@ def generate_tool_catalog(tool: str, versions: list, source: str) -> dict:
     }
 
 
-ALL_TOOLS = ["java", "node", "go", "python", "dotnet", "ruby", "rust"]
+ALL_TOOLS = ["java", "node", "go", "python", "dotnet", "ruby", "rust", "flutter"]
 
 SOURCE_MAP = {
     "java": "adoptium.net",
@@ -55,7 +56,31 @@ SOURCE_MAP = {
     "dotnet": "dotnet.microsoft.com",
     "ruby": "cache.ruby-lang.org",
     "rust": "static.rust-lang.org",
+    "flutter": "storage.googleapis.com/flutter_infra_release",
 }
+
+
+def preserve_existing_sha(versions: list, previous: dict) -> list:
+    """Fill missing sha256 values from previous catalog to avoid re-fetching."""
+    prev_versions = previous.get("versions", [])
+    if not prev_versions:
+        return versions
+    # Build index: (version, os, arch) -> sha256
+    prev_index: dict[tuple, str] = {}
+    for v in prev_versions:
+        for art in v.get("artifacts", []):
+            sha = art.get("sha256", "")
+            if sha and re.match(r"^[0-9a-f]{64}$", sha):
+                key = (v["version"], art.get("os"), art.get("arch"))
+                prev_index[key] = sha
+    for v in versions:
+        for art in v.get("artifacts", []):
+            if art.get("sha256"):
+                continue
+            key = (v["version"], art.get("os"), art.get("arch"))
+            if key in prev_index:
+                art["sha256"] = prev_index[key]
+    return versions
 
 
 def collect_tool(tool: str, max_versions=None) -> list:
@@ -83,6 +108,10 @@ def collect_tool(tool: str, max_versions=None) -> list:
         return result.get("versions", [])
     elif tool == "rust":
         from collect_rust_toolchain import collect
+        result = collect()
+        return result.get("versions", [])
+    elif tool == "flutter":
+        from collect_flutter import collect
         result = collect()
         return result.get("versions", [])
     else:
@@ -115,8 +144,10 @@ def main():
 
         try:
             log.info(f"Collecting {tool}...")
+            previous = load_previous(prev_path)
             versions = collect_tool(tool, max_versions=args.max_versions)
 
+            versions = preserve_existing_sha(versions, previous)
             versions = normalize_catalog(versions)
             log.info(f"Collected {len(versions)} {tool} versions")
 
