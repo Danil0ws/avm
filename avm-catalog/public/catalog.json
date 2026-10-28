@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-10-28T12:26:37.898164Z",
+  "generated_at": "2026-10-28T18:13:00.551660Z",
   "schema_version": 1,
   "tools": {
     "dotnet": {
-      "generated_at": "2026-10-28T12:11:22.960981Z",
+      "generated_at": "2026-10-28T18:09:52.442343Z",
       "schema_version": 1,
       "source": "dotnet.microsoft.com",
       "tool": "dotnet",
       "versions": []
     },
     "flutter": {
-      "generated_at": "2026-10-28T12:11:22.151990Z",
+      "generated_at": "2026-10-28T18:09:50.665882Z",
       "schema_version": 1,
       "source": "storage.googleapis.com/flutter_infra_release",
       "tool": "flutter",
@@ -7418,7 +7418,7 @@
       ]
     },
     "go": {
-      "generated_at": "2026-10-28T12:11:23.533806Z",
+      "generated_at": "2026-10-28T18:09:50.417043Z",
       "schema_version": 1,
       "source": "go.dev",
       "tool": "go",
@@ -18320,7 +18320,7 @@
       ]
     },
     "java": {
-      "generated_at": "2026-10-28T12:11:24.441285Z",
+      "generated_at": "2026-10-28T18:09:56.458425Z",
       "schema_version": 1,
       "source": "adoptium.net",
       "tool": "java",
@@ -21800,11 +21800,67 @@
       ]
     },
     "node": {
-      "generated_at": "2026-10-28T06:16:00.419449Z",
+      "generated_at": "2026-10-28T18:12:50.011471Z",
       "schema_version": 1,
       "source": "nodejs.org",
       "tool": "node",
       "versions": [
+        {
+          "artifacts": [
+            {
+              "arch": "arm64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "406fe3fbde1c054adff8b297c16fdb5af6659db327c1ac8acd46b56ef1af9a92",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.0/node-v26.13.0-linux-arm64.tar.xz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "d28a96af6c38596f6d9d97c0ee531c13d238d757742387d1928de822d959e997",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.0/node-v26.13.0-linux-x64.tar.xz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "d38bd5e5a2ddce6bbb5ce45e46e208337da4d51fffe611e567fd32073d6439f6",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.0/node-v26.13.0-darwin-arm64.tar.gz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "525c9b29bb0263d687de60a4cec0e2a6db876a8eb032369e5795eca71e7c358e",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.0/node-v26.13.0-darwin-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "a9427139595156ef484e1fb08957676e09d4232368dd1743a2a9f93f3d241b14",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.0/node-v26.13.0-win-arm64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "dcc60d59a0746999f99064a01c020445d54d84228c691cdbf25b49ac3b59150a",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.0/node-v26.13.0-win-x64.zip"
+            }
+          ],
+          "channel": "lts",
+          "distribution": null,
+          "release_date": "2026-10-28",
+          "version": "26.13.0"
+        },
         {
           "artifacts": [
             {
@@ -52528,21 +52584,21 @@
       ]
     },
     "python": {
-      "generated_at": "2026-10-28T12:11:18.529582Z",
+      "generated_at": "2026-10-28T18:09:50.605522Z",
       "schema_version": 1,
       "source": "python.org",
       "tool": "python",
       "versions": []
     },
     "ruby": {
-      "generated_at": "2026-10-28T12:11:20.283405Z",
+      "generated_at": "2026-10-28T18:09:49.369483Z",
       "schema_version": 1,
       "source": "cache.ruby-lang.org",
       "tool": "ruby",
       "versions": []
     },
     "rust": {
-      "generated_at": "2026-10-28T12:11:19.361692Z",
+      "generated_at": "2026-10-28T18:09:48.277920Z",
       "schema_version": 1,
       "source": "static.rust-lang.org",
       "tool": "rust",
