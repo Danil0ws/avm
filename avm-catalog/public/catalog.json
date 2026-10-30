@@ -1,20 +1,60 @@
 {
-  "generated_at": "2026-10-29T18:12:42.228476Z",
+  "generated_at": "2026-10-30T00:25:05.945003Z",
   "schema_version": 1,
   "tools": {
     "dotnet": {
-      "generated_at": "2026-10-29T18:09:58.317317Z",
+      "generated_at": "2026-10-30T00:20:48.312507Z",
       "schema_version": 1,
       "source": "dotnet.microsoft.com",
       "tool": "dotnet",
       "versions": []
     },
     "flutter": {
-      "generated_at": "2026-10-29T18:09:53.453092Z",
+      "generated_at": "2026-10-30T00:20:46.671630Z",
       "schema_version": 1,
       "source": "storage.googleapis.com/flutter_infra_release",
       "tool": "flutter",
       "versions": [
+        {
+          "artifacts": [
+            {
+              "arch": "x64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "25ed8c3c29d51a7353f2a944310b478af8214920639524b19c50a19e6c044c5a",
+              "size_bytes": null,
+              "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/linux/flutter_linux_3.47.9-stable.tar.xz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "macos",
+              "sha256": "0dc38b4038a0b002a6258696a5b327a58473c175c9e334b9f329ef7d79a4fdcd",
+              "size_bytes": null,
+              "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/macos/flutter_macos_3.47.9-stable.zip"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "macos",
+              "sha256": "6545b85938745dc5070e9faf2adf70233c1811009d87fe6d27bfcda5a04b7698",
+              "size_bytes": null,
+              "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/macos/flutter_macos_arm64_3.47.9-stable.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "d8e2b5977e09082c6440f89dc1aa887b94c8fbcc3b39222797046295a3f68a9e",
+              "size_bytes": null,
+              "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/windows/flutter_windows_3.47.9-stable.zip"
+            }
+          ],
+          "distribution": "flutter",
+          "lts": false,
+          "release_date": "2026-10-29T19:22:44.517205Z",
+          "version": "3.47.9"
+        },
         {
           "artifacts": [
             {
@@ -7418,7 +7458,7 @@
       ]
     },
     "go": {
-      "generated_at": "2026-10-29T18:09:55.663368Z",
+      "generated_at": "2026-10-30T00:20:45.864299Z",
       "schema_version": 1,
       "source": "go.dev",
       "tool": "go",
@@ -18320,7 +18360,7 @@
       ]
     },
     "java": {
-      "generated_at": "2026-10-29T18:10:03.606887Z",
+      "generated_at": "2026-10-30T00:20:52.392591Z",
       "schema_version": 1,
       "source": "adoptium.net",
       "tool": "java",
@@ -21800,11 +21840,59 @@
       ]
     },
     "node": {
-      "generated_at": "2026-10-29T18:12:29.732776Z",
+      "generated_at": "2026-10-30T00:24:51.618153Z",
       "schema_version": 1,
       "source": "nodejs.org",
       "tool": "node",
       "versions": [
+        {
+          "artifacts": [
+            {
+              "arch": "arm64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "348be53d6a3d6d41ba147d88743cc842777ac1a1efec56a8dc56128b27e69b9f",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v27.0.0-alpha.0.0.0/node-v27.0.0-alpha.0.0.0-linux-arm64.tar.xz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "f1e9f7f2deef9797f9106781d097649b99df2a473e1fd3f97b6991fa6a271f4f",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v27.0.0-alpha.0.0.0/node-v27.0.0-alpha.0.0.0-linux-x64.tar.xz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "ce167d66bc5d1dd25efcfb0126425e2a1c2b267aaea2a5d0bb47892b2afacbc4",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v27.0.0-alpha.0.0.0/node-v27.0.0-alpha.0.0.0-darwin-arm64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "0e00c230331322807bf205fc57a867bea69af4a6f31aa592b629360995c9855a",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v27.0.0-alpha.0.0.0/node-v27.0.0-alpha.0.0.0-win-arm64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "3c84038265e95b3d28716ab7a0e6b8478eed8e304ec9ccbb22b8db031c821dd1",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v27.0.0-alpha.0.0.0/node-v27.0.0-alpha.0.0.0-win-x64.zip"
+            }
+          ],
+          "channel": "current",
+          "distribution": null,
+          "release_date": "2026-10-29",
+          "version": "27.0.0-alpha.0.0.0"
+        },
         {
           "artifacts": [
             {
@@ -52640,21 +52728,21 @@
       ]
     },
     "python": {
-      "generated_at": "2026-10-29T18:09:52.809822Z",
+      "generated_at": "2026-10-30T00:20:48.514983Z",
       "schema_version": 1,
       "source": "python.org",
       "tool": "python",
       "versions": []
     },
     "ruby": {
-      "generated_at": "2026-10-29T18:09:56.402905Z",
+      "generated_at": "2026-10-30T00:20:48.819439Z",
       "schema_version": 1,
       "source": "cache.ruby-lang.org",
       "tool": "ruby",
       "versions": []
     },
     "rust": {
-      "generated_at": "2026-10-29T18:09:53.213171Z",
+      "generated_at": "2026-10-30T00:20:48.344894Z",
       "schema_version": 1,
       "source": "static.rust-lang.org",
       "tool": "rust",

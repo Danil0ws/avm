@@ -1,9 +1,49 @@
 {
-  "generated_at": "2026-10-29T18:09:53.453092Z",
+  "generated_at": "2026-10-30T00:20:46.671630Z",
   "schema_version": 1,
   "source": "storage.googleapis.com/flutter_infra_release",
   "tool": "flutter",
   "versions": [
+    {
+      "artifacts": [
+        {
+          "arch": "x64",
+          "archive_type": "tar.xz",
+          "os": "linux",
+          "sha256": "25ed8c3c29d51a7353f2a944310b478af8214920639524b19c50a19e6c044c5a",
+          "size_bytes": null,
+          "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/linux/flutter_linux_3.47.9-stable.tar.xz"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "zip",
+          "os": "macos",
+          "sha256": "0dc38b4038a0b002a6258696a5b327a58473c175c9e334b9f329ef7d79a4fdcd",
+          "size_bytes": null,
+          "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/macos/flutter_macos_3.47.9-stable.zip"
+        },
+        {
+          "arch": "arm64",
+          "archive_type": "zip",
+          "os": "macos",
+          "sha256": "6545b85938745dc5070e9faf2adf70233c1811009d87fe6d27bfcda5a04b7698",
+          "size_bytes": null,
+          "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/macos/flutter_macos_arm64_3.47.9-stable.zip"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "zip",
+          "os": "windows",
+          "sha256": "d8e2b5977e09082c6440f89dc1aa887b94c8fbcc3b39222797046295a3f68a9e",
+          "size_bytes": null,
+          "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/windows/flutter_windows_3.47.9-stable.zip"
+        }
+      ],
+      "distribution": "flutter",
+      "lts": false,
+      "release_date": "2026-10-29T19:22:44.517205Z",
+      "version": "3.47.9"
+    },
     {
       "artifacts": [
         {
