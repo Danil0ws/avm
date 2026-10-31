@@ -62,11 +62,11 @@ jobs:
 
       - name: Build (native)
         if: ${{ !matrix.cross }}
-        run: cargo build --locked --release --target ${{ matrix.target }} -p avm
+        run: cargo build --release --target ${{ matrix.target }} -p avm
 
       - name: Build (cross)
         if: ${{ matrix.cross }}
-        run: cross build --locked --release --target ${{ matrix.target }} -p avm
+        run: cross build --release --target ${{ matrix.target }} -p avm
 
       - name: Package (tar.gz)
         if: matrix.archive == 'tar.gz'
