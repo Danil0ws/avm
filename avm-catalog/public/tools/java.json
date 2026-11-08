@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T06:10:31.688337Z",
+  "generated_at": "2026-11-08T12:08:42.574322Z",
   "schema_version": 1,
   "source": "adoptium.net",
   "tool": "java",
@@ -2299,6 +2299,62 @@
       "lts": true,
       "release_date": null,
       "version": "17.0.3"
+    },
+    {
+      "artifacts": [
+        {
+          "arch": "x64",
+          "archive_type": "tar.gz",
+          "os": "macos",
+          "sha256": "e3bfbb68969a90c45495381093eba3225d85a71197ccc6779b992d2d199ef256",
+          "size_bytes": null,
+          "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-macos-x64.tar.gz"
+        },
+        {
+          "arch": "arm64",
+          "archive_type": "tar.gz",
+          "os": "macos",
+          "sha256": "c1efc666076916a8ecbc2346ca588dfac7375ad4a53a383618d7c124febbc00e",
+          "size_bytes": null,
+          "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-macos-aarch64.tar.gz"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "zip",
+          "os": "windows",
+          "sha256": "632ffd60faedb4047eadecb02b2f281e99e4c35e1e7711e5dcdc4c73e2185995",
+          "size_bytes": null,
+          "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-windows-x64.zip"
+        },
+        {
+          "arch": "arm64",
+          "archive_type": "zip",
+          "os": "windows",
+          "sha256": "eaec0a33da7bb5d1538017198814d553451662a7341620fe184a764617644d52",
+          "size_bytes": null,
+          "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-windows-aarch64.zip"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "tar.gz",
+          "os": "linux",
+          "sha256": "835411604b321042db7191479d9039f45d138f3d505183e24c3fad1713ed7fc0",
+          "size_bytes": null,
+          "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-linux-x64.tar.gz"
+        },
+        {
+          "arch": "arm64",
+          "archive_type": "tar.gz",
+          "os": "linux",
+          "sha256": "a9102ad6478832df70ff1f35994c1c28aced8d8d4160cbca6688cad5133c4548",
+          "size_bytes": null,
+          "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-linux-aarch64.tar.gz"
+        }
+      ],
+      "distribution": "microsoft",
+      "lts": true,
+      "release_date": null,
+      "version": "11.0.33"
     },
     {
       "artifacts": [

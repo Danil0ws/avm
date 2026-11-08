@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-08T06:13:33.550752Z",
+  "generated_at": "2026-11-08T12:11:04.551645Z",
   "schema_version": 1,
   "tools": {
     "dotnet": {
-      "generated_at": "2026-11-08T06:10:27.834481Z",
+      "generated_at": "2026-11-08T12:08:36.930956Z",
       "schema_version": 1,
       "source": "dotnet.microsoft.com",
       "tool": "dotnet",
       "versions": []
     },
     "flutter": {
-      "generated_at": "2026-11-08T06:10:27.868077Z",
+      "generated_at": "2026-11-08T12:08:37.024673Z",
       "schema_version": 1,
       "source": "storage.googleapis.com/flutter_infra_release",
       "tool": "flutter",
@@ -7458,7 +7458,7 @@
       ]
     },
     "go": {
-      "generated_at": "2026-11-08T06:10:30.792745Z",
+      "generated_at": "2026-11-08T12:08:37.859249Z",
       "schema_version": 1,
       "source": "go.dev",
       "tool": "go",
@@ -18360,7 +18360,7 @@
       ]
     },
     "java": {
-      "generated_at": "2026-11-08T06:10:31.688337Z",
+      "generated_at": "2026-11-08T12:08:42.574322Z",
       "schema_version": 1,
       "source": "adoptium.net",
       "tool": "java",
@@ -20667,6 +20667,62 @@
               "arch": "x64",
               "archive_type": "tar.gz",
               "os": "macos",
+              "sha256": "e3bfbb68969a90c45495381093eba3225d85a71197ccc6779b992d2d199ef256",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-macos-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "c1efc666076916a8ecbc2346ca588dfac7375ad4a53a383618d7c124febbc00e",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-macos-aarch64.tar.gz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "632ffd60faedb4047eadecb02b2f281e99e4c35e1e7711e5dcdc4c73e2185995",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-windows-x64.zip"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "eaec0a33da7bb5d1538017198814d553451662a7341620fe184a764617644d52",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-windows-aarch64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "linux",
+              "sha256": "835411604b321042db7191479d9039f45d138f3d505183e24c3fad1713ed7fc0",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-linux-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "linux",
+              "sha256": "a9102ad6478832df70ff1f35994c1c28aced8d8d4160cbca6688cad5133c4548",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33-linux-aarch64.tar.gz"
+            }
+          ],
+          "distribution": "microsoft",
+          "lts": true,
+          "release_date": null,
+          "version": "11.0.33"
+        },
+        {
+          "artifacts": [
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "macos",
               "sha256": "96088abf8d4a483cfc1f7e1f68d5f9e01e396b5903571f087efb35867497d390",
               "size_bytes": null,
               "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.32.1-macos-x64.tar.gz"
@@ -21840,7 +21896,7 @@
       ]
     },
     "node": {
-      "generated_at": "2026-11-08T06:13:20.368899Z",
+      "generated_at": "2026-11-08T12:10:50.412946Z",
       "schema_version": 1,
       "source": "nodejs.org",
       "tool": "node",
@@ -52728,21 +52784,21 @@
       ]
     },
     "python": {
-      "generated_at": "2026-11-08T06:10:31.745574Z",
+      "generated_at": "2026-11-08T12:08:37.370223Z",
       "schema_version": 1,
       "source": "python.org",
       "tool": "python",
       "versions": []
     },
     "ruby": {
-      "generated_at": "2026-11-08T06:10:28.594843Z",
+      "generated_at": "2026-11-08T12:08:38.014358Z",
       "schema_version": 1,
       "source": "cache.ruby-lang.org",
       "tool": "ruby",
       "versions": []
     },
     "rust": {
-      "generated_at": "2026-11-08T06:10:28.906382Z",
+      "generated_at": "2026-11-08T12:08:39.038502Z",
       "schema_version": 1,
       "source": "static.rust-lang.org",
       "tool": "rust",
