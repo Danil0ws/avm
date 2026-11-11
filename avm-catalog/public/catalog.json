@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-11T12:12:20.165105Z",
+  "generated_at": "2026-11-11T18:11:25.253600Z",
   "schema_version": 1,
   "tools": {
     "dotnet": {
-      "generated_at": "2026-11-11T12:10:00.141917Z",
+      "generated_at": "2026-11-11T18:07:17.984949Z",
       "schema_version": 1,
       "source": "dotnet.microsoft.com",
       "tool": "dotnet",
       "versions": []
     },
     "flutter": {
-      "generated_at": "2026-11-11T12:09:57.608937Z",
+      "generated_at": "2026-11-11T18:07:19.749513Z",
       "schema_version": 1,
       "source": "storage.googleapis.com/flutter_infra_release",
       "tool": "flutter",
@@ -7458,7 +7458,7 @@
       ]
     },
     "go": {
-      "generated_at": "2026-11-11T12:10:04.090462Z",
+      "generated_at": "2026-11-11T18:07:20.641252Z",
       "schema_version": 1,
       "source": "go.dev",
       "tool": "go",
@@ -18454,7 +18454,7 @@
       ]
     },
     "java": {
-      "generated_at": "2026-11-11T12:10:07.458041Z",
+      "generated_at": "2026-11-11T18:07:25.800341Z",
       "schema_version": 1,
       "source": "adoptium.net",
       "tool": "java",
@@ -21990,7 +21990,7 @@
       ]
     },
     "node": {
-      "generated_at": "2026-11-11T12:12:08.916924Z",
+      "generated_at": "2026-11-11T18:11:13.217673Z",
       "schema_version": 1,
       "source": "nodejs.org",
       "tool": "node",
@@ -22042,6 +22042,62 @@
           "distribution": null,
           "release_date": "2026-10-29",
           "version": "27.0.0-alpha.0.0.0"
+        },
+        {
+          "artifacts": [
+            {
+              "arch": "arm64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "89e1853138db51e8b82d3e98ba9c0d3f2956a28e5e55ea1b7e12d25aae92d5dd",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-linux-arm64.tar.xz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "5c063e46bab0fbc1c17cc445d7ff129cbdcd0471be6ed83b6ab864f8143bc864",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-linux-x64.tar.xz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "aec2514ea1ceb2ba52455e9ec65986f6749a06dd759e5db2a72e6889668c9735",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-darwin-arm64.tar.gz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "82bb96078a24ca50b9c9a38f2379e6be6d87171fcd400fc14c8934b3bce96e2f",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-darwin-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "181ebe431b90787113a9e4fc80d38ce86d37888a353a0386de44d2872e48cb97",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-win-arm64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "e2edda75bfb089654705cf65a13b58933bfd5f57148e8ebda916f58a2474f1f7",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-win-x64.zip"
+            }
+          ],
+          "channel": "lts",
+          "distribution": null,
+          "release_date": "2026-11-10",
+          "version": "26.13.1"
         },
         {
           "artifacts": [
@@ -23946,6 +24002,62 @@
           "distribution": null,
           "release_date": "2025-10-15",
           "version": "25.0.0"
+        },
+        {
+          "artifacts": [
+            {
+              "arch": "arm64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "6e51a2ada00f0011cc266f65d98922b403d7ad88f809ca2aa615a5fe1ce6e86c",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-linux-arm64.tar.xz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "4f2b175a6d53a5c617a80dba2676238a0688cef28c6da4eba35c7d844e66fcfb",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-linux-x64.tar.xz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "ff6e17d4874b76d272212b908cc020d6e815fba5a6c7eaaa06add725840307fd",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-darwin-arm64.tar.gz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "977614af0504c81045e7fd85596dbca0e5f951b96681516dadafedcca8c447f7",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-darwin-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "b3cc74a295b39d4f273271e96f58c06dd2b35757ca12abec64c7d0598b434f14",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-win-arm64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "e612af99f626ab415ea225af6bce5c971feb448cb5cae250bb1c3fa50c5f7d9f",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-win-x64.zip"
+            }
+          ],
+          "channel": "lts",
+          "distribution": null,
+          "release_date": "2026-11-10",
+          "version": "24.22.3"
         },
         {
           "artifacts": [
@@ -26522,6 +26634,62 @@
           "distribution": null,
           "release_date": "2024-10-16",
           "version": "23.0.0"
+        },
+        {
+          "artifacts": [
+            {
+              "arch": "arm64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "2babb9eb5264860d540849f4b064a6fbdebcdc323657d9d382ce23d313fd5e09",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v22.23.5/node-v22.23.5-linux-arm64.tar.xz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "cdeb8670a0c81f51b4dc4ac61919f9b1ad917b304bf8221eb939570663d240f8",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v22.23.5/node-v22.23.5-linux-x64.tar.xz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "e7131995759b61a0170b646010d2ad35a5d37b4cb0d471f3e8317eac6f742f3d",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v22.23.5/node-v22.23.5-darwin-arm64.tar.gz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "c53383238206b9ae4db23c5d8a63645e2e753bec8ab51a49cc81939aa64e9422",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v22.23.5/node-v22.23.5-darwin-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "c1856817f611738c77534efbff8a5a17990593eab24046bc8d2c23a77a160d13",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v22.23.5/node-v22.23.5-win-arm64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "4a191082e9706866830379d577d2cc8a50c776fcd9436a8d061b063ed0d9a0e3",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v22.23.5/node-v22.23.5-win-x64.zip"
+            }
+          ],
+          "channel": "lts",
+          "distribution": null,
+          "release_date": "2026-11-11",
+          "version": "22.23.5"
         },
         {
           "artifacts": [
@@ -52878,21 +53046,21 @@
       ]
     },
     "python": {
-      "generated_at": "2026-11-11T12:09:56.776133Z",
+      "generated_at": "2026-11-11T18:07:18.097232Z",
       "schema_version": 1,
       "source": "python.org",
       "tool": "python",
       "versions": []
     },
     "ruby": {
-      "generated_at": "2026-11-11T12:09:59.608264Z",
+      "generated_at": "2026-11-11T18:07:17.695494Z",
       "schema_version": 1,
       "source": "cache.ruby-lang.org",
       "tool": "ruby",
       "versions": []
     },
     "rust": {
-      "generated_at": "2026-11-11T12:09:56.880854Z",
+      "generated_at": "2026-11-11T18:07:18.863530Z",
       "schema_version": 1,
       "source": "static.rust-lang.org",
       "tool": "rust",
