@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-12T12:12:42.313735Z",
+  "generated_at": "2026-11-12T18:11:42.602098Z",
   "schema_version": 1,
   "tools": {
     "dotnet": {
-      "generated_at": "2026-11-12T12:10:14.341964Z",
+      "generated_at": "2026-11-12T18:08:20.325092Z",
       "schema_version": 1,
       "source": "dotnet.microsoft.com",
       "tool": "dotnet",
       "versions": []
     },
     "flutter": {
-      "generated_at": "2026-11-12T12:10:16.124610Z",
+      "generated_at": "2026-11-12T18:08:21.187158Z",
       "schema_version": 1,
       "source": "storage.googleapis.com/flutter_infra_release",
       "tool": "flutter",
@@ -7498,7 +7498,7 @@
       ]
     },
     "go": {
-      "generated_at": "2026-11-12T12:10:15.930566Z",
+      "generated_at": "2026-11-12T18:08:20.001516Z",
       "schema_version": 1,
       "source": "go.dev",
       "tool": "go",
@@ -18494,7 +18494,7 @@
       ]
     },
     "java": {
-      "generated_at": "2026-11-12T12:10:22.849049Z",
+      "generated_at": "2026-11-12T18:08:22.186494Z",
       "schema_version": 1,
       "source": "adoptium.net",
       "tool": "java",
@@ -22030,11 +22030,59 @@
       ]
     },
     "node": {
-      "generated_at": "2026-11-12T12:12:30.703129Z",
+      "generated_at": "2026-11-12T18:11:31.244456Z",
       "schema_version": 1,
       "source": "nodejs.org",
       "tool": "node",
       "versions": [
+        {
+          "artifacts": [
+            {
+              "arch": "arm64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "6918ae0ead8e117805e6684dcc24e19f1b534ccbf94ce01b68bb4f6b373e0a98",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v27.0.0-alpha.0.1.0/node-v27.0.0-alpha.0.1.0-linux-arm64.tar.xz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "44aadb38d36e21d13f98c27986d2cad281ab65ea054d645c54763ed9017e31fb",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v27.0.0-alpha.0.1.0/node-v27.0.0-alpha.0.1.0-linux-x64.tar.xz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "0989b23a7da0e5b370b587f6148b91152759d0a035eaae0a40c993cc3f1e184e",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v27.0.0-alpha.0.1.0/node-v27.0.0-alpha.0.1.0-darwin-arm64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "830b8dd5c84d7640a4d0225571aad8e1b62f2b461231035ee57b5c10036de014",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v27.0.0-alpha.0.1.0/node-v27.0.0-alpha.0.1.0-win-arm64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "3aae43783017356d8e5a3b581b439fc4e2318dcf98414ae08d6d74c9ccc98ce0",
+              "size_bytes": null,
+              "url": "https://nodejs.org/dist/v27.0.0-alpha.0.1.0/node-v27.0.0-alpha.0.1.0-win-x64.zip"
+            }
+          ],
+          "channel": "current",
+          "distribution": null,
+          "release_date": "2026-11-12",
+          "version": "27.0.0-alpha.0.1.0"
+        },
         {
           "artifacts": [
             {
@@ -53086,21 +53134,21 @@
       ]
     },
     "python": {
-      "generated_at": "2026-11-12T12:10:16.095981Z",
+      "generated_at": "2026-11-12T18:08:22.536211Z",
       "schema_version": 1,
       "source": "python.org",
       "tool": "python",
       "versions": []
     },
     "ruby": {
-      "generated_at": "2026-11-12T12:10:13.931404Z",
+      "generated_at": "2026-11-12T18:08:17.684405Z",
       "schema_version": 1,
       "source": "cache.ruby-lang.org",
       "tool": "ruby",
       "versions": []
     },
     "rust": {
-      "generated_at": "2026-11-12T12:10:20.187987Z",
+      "generated_at": "2026-11-12T18:08:20.156332Z",
       "schema_version": 1,
       "source": "static.rust-lang.org",
       "tool": "rust",
