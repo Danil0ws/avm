@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-12T18:11:42.602098Z",
+  "generated_at": "2026-11-13T00:19:40.381026Z",
   "schema_version": 1,
   "tools": {
     "dotnet": {
-      "generated_at": "2026-11-12T18:08:20.325092Z",
+      "generated_at": "2026-11-13T00:17:17.565592Z",
       "schema_version": 1,
       "source": "dotnet.microsoft.com",
       "tool": "dotnet",
       "versions": []
     },
     "flutter": {
-      "generated_at": "2026-11-12T18:08:21.187158Z",
+      "generated_at": "2026-11-13T00:17:17.664235Z",
       "schema_version": 1,
       "source": "storage.googleapis.com/flutter_infra_release",
       "tool": "flutter",
@@ -7498,7 +7498,7 @@
       ]
     },
     "go": {
-      "generated_at": "2026-11-12T18:08:20.001516Z",
+      "generated_at": "2026-11-13T00:17:26.651161Z",
       "schema_version": 1,
       "source": "go.dev",
       "tool": "go",
@@ -18494,7 +18494,7 @@
       ]
     },
     "java": {
-      "generated_at": "2026-11-12T18:08:22.186494Z",
+      "generated_at": "2026-11-13T00:17:20.590078Z",
       "schema_version": 1,
       "source": "adoptium.net",
       "tool": "java",
@@ -22030,7 +22030,7 @@
       ]
     },
     "node": {
-      "generated_at": "2026-11-12T18:11:31.244456Z",
+      "generated_at": "2026-11-13T00:19:30.709635Z",
       "schema_version": 1,
       "source": "nodejs.org",
       "tool": "node",
@@ -53134,21 +53134,21 @@
       ]
     },
     "python": {
-      "generated_at": "2026-11-12T18:08:22.536211Z",
+      "generated_at": "2026-11-13T00:17:18.257753Z",
       "schema_version": 1,
       "source": "python.org",
       "tool": "python",
       "versions": []
     },
     "ruby": {
-      "generated_at": "2026-11-12T18:08:17.684405Z",
+      "generated_at": "2026-11-13T00:17:16.380593Z",
       "schema_version": 1,
       "source": "cache.ruby-lang.org",
       "tool": "ruby",
       "versions": []
     },
     "rust": {
-      "generated_at": "2026-11-12T18:08:20.156332Z",
+      "generated_at": "2026-11-13T00:17:16.829121Z",
       "schema_version": 1,
       "source": "static.rust-lang.org",
       "tool": "rust",
@@ -53159,46 +53159,46 @@
               "arch": "arm64",
               "archive_type": "tar.xz",
               "os": "macos",
-              "sha256": "30976378b6aaefd1861ba475905c6ba22a44c981418ce52285006af26337f98c",
-              "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-aarch64-apple-darwin.tar.xz"
+              "sha256": "68ba729fe20df0f74309ef55ffbe518fc982177f327651b06112ef11e8e1de0d",
+              "url": "https://static.rust-lang.org/dist/2026-11-12/rust-1.100.0-aarch64-apple-darwin.tar.xz"
             },
             {
               "arch": "arm64",
               "archive_type": "tar.xz",
               "os": "windows",
-              "sha256": "796aef075f91f8cf433df1e30817d7b16e07714dda5b9b6a9e32eddbadff3296",
-              "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-aarch64-pc-windows-msvc.tar.xz"
+              "sha256": "7b3cdff0f00579c4810502cd6c2670630ed59071d7ba641b775cb4572d67b002",
+              "url": "https://static.rust-lang.org/dist/2026-11-12/rust-1.100.0-aarch64-pc-windows-msvc.tar.xz"
             },
             {
               "arch": "arm64",
               "archive_type": "tar.xz",
               "os": "linux",
-              "sha256": "a48fb1e853be56ce9b8e2751f5464dbd5e16440cd81e237920f3a5e7e806333e",
-              "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+              "sha256": "a21f6a21818df07c1e2e7addb570af5444b3fa9dd61e3a207f4fb1c5a5e665c9",
+              "url": "https://static.rust-lang.org/dist/2026-11-12/rust-1.100.0-aarch64-unknown-linux-gnu.tar.xz"
             },
             {
               "arch": "x64",
               "archive_type": "tar.xz",
               "os": "macos",
-              "sha256": "13b237d0294bad3bb7b18d559517947ed8348ea25812fa3b468c904996f80e34",
-              "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-x86_64-apple-darwin.tar.xz"
+              "sha256": "7669d8521e663c012d3f44081b5419112f329cafd5cfbdd3b9c24c14ba9eadbb",
+              "url": "https://static.rust-lang.org/dist/2026-11-12/rust-1.100.0-x86_64-apple-darwin.tar.xz"
             },
             {
               "arch": "x64",
               "archive_type": "tar.xz",
               "os": "windows",
-              "sha256": "4048445c5fa6fae8d5ca1a956e42c37ac2bdd1456c5f56a1139c0b074a7d1f6c",
-              "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-x86_64-pc-windows-msvc.tar.xz"
+              "sha256": "8c9dabd0a03ebb9d9b8f64fc5298b22ce3c5de7c80e38a075fcc6d81a0e1e7ec",
+              "url": "https://static.rust-lang.org/dist/2026-11-12/rust-1.100.0-x86_64-pc-windows-msvc.tar.xz"
             },
             {
               "arch": "x64",
               "archive_type": "tar.xz",
               "os": "linux",
-              "sha256": "231fcae47ee950621374725b5fc3b5441d2fbda2955ac45dd7dc816d8876cfe7",
-              "url": "https://static.rust-lang.org/dist/2026-10-15/rust-1.99.1-x86_64-unknown-linux-gnu.tar.xz"
+              "sha256": "98ee6bec240e1cfe944f17e7092412dc5ef6e008484bb668c6936d35a7d15acd",
+              "url": "https://static.rust-lang.org/dist/2026-11-12/rust-1.100.0-x86_64-unknown-linux-gnu.tar.xz"
             }
           ],
-          "version": "1.99.1"
+          "version": "1.100.0"
         }
       ]
     }
