@@ -1,9 +1,57 @@
 {
-  "generated_at": "2026-11-17T00:19:30.027153Z",
+  "generated_at": "2026-11-17T06:13:18.554364Z",
   "schema_version": 1,
   "source": "nodejs.org",
   "tool": "node",
   "versions": [
+    {
+      "artifacts": [
+        {
+          "arch": "arm64",
+          "archive_type": "tar.xz",
+          "os": "linux",
+          "sha256": "fd467a44118d947a5816028b9cf50885584abd8eb9922f1b401bc58b7b267f42",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v27.0.0-alpha.0.1.1/node-v27.0.0-alpha.0.1.1-linux-arm64.tar.xz"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "tar.xz",
+          "os": "linux",
+          "sha256": "61d470cadc25737792030cc0465e061cfa91fa5deea482c21134966334c6357d",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v27.0.0-alpha.0.1.1/node-v27.0.0-alpha.0.1.1-linux-x64.tar.xz"
+        },
+        {
+          "arch": "arm64",
+          "archive_type": "tar.gz",
+          "os": "macos",
+          "sha256": "08055de3262a6f3a707933e68b67d9703431b4a39cdacc5b875c766499c076dc",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v27.0.0-alpha.0.1.1/node-v27.0.0-alpha.0.1.1-darwin-arm64.tar.gz"
+        },
+        {
+          "arch": "arm64",
+          "archive_type": "zip",
+          "os": "windows",
+          "sha256": "347ffb10ae42a1977cbab520d2d92754c8778893d7fada5c1e5c39d533fe05ff",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v27.0.0-alpha.0.1.1/node-v27.0.0-alpha.0.1.1-win-arm64.zip"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "zip",
+          "os": "windows",
+          "sha256": "67a346171e62714202df7dc571f72e894034616bcb15fc5d664f998adb7fa07a",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v27.0.0-alpha.0.1.1/node-v27.0.0-alpha.0.1.1-win-x64.zip"
+        }
+      ],
+      "channel": "current",
+      "distribution": null,
+      "release_date": "2026-11-16",
+      "version": "27.0.0-alpha.0.1.1"
+    },
     {
       "artifacts": [
         {
