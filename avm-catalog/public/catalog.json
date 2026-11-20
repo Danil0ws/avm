@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-20T00:19:00.745034Z",
+  "generated_at": "2026-11-20T06:13:08.286036Z",
   "schema_version": 1,
   "tools": {
     "dotnet": {
-      "generated_at": "2026-11-20T00:15:49.911200Z",
+      "generated_at": "2026-11-20T06:11:09.496646Z",
       "schema_version": 1,
       "source": "dotnet.microsoft.com",
       "tool": "dotnet",
       "versions": []
     },
     "flutter": {
-      "generated_at": "2026-11-20T00:15:50.901333Z",
+      "generated_at": "2026-11-20T06:11:09.150443Z",
       "schema_version": 1,
       "source": "storage.googleapis.com/flutter_infra_release",
       "tool": "flutter",
@@ -18,17 +18,41 @@
         {
           "artifacts": [
             {
+              "arch": "x64",
+              "archive_type": "tar.xz",
+              "os": "linux",
+              "sha256": "4ad17fc8462fbcef2ba19ff4a78c0a16b7147fde1add8578e267ea62cdb92678",
+              "size_bytes": null,
+              "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/linux/flutter_linux_3.50.1-stable.tar.xz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "macos",
+              "sha256": "5c3d3bbabc8edd58eb98605047c59c31a82895cfe7d119318d0f62cdbd5d47ed",
+              "size_bytes": null,
+              "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/macos/flutter_macos_3.50.1-stable.zip"
+            },
+            {
               "arch": "arm64",
               "archive_type": "zip",
               "os": "macos",
               "sha256": "872883d49965e0cc1d8e477d2d87f2f45930d13f94b34889e53783586f04c715",
               "size_bytes": null,
               "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/macos/flutter_macos_arm64_3.50.1-stable.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "33c1e3d4dd08f1136ddb9c7976cfd2b0ab20296f1565b78ba176a4cbb4e140eb",
+              "size_bytes": null,
+              "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/windows/flutter_windows_3.50.1-stable.zip"
             }
           ],
           "distribution": "flutter",
           "lts": false,
-          "release_date": "2026-11-20T00:06:05.590406Z",
+          "release_date": "2026-11-20T00:24:27.186534Z",
           "version": "3.50.1"
         },
         {
@@ -7514,7 +7538,7 @@
       ]
     },
     "go": {
-      "generated_at": "2026-11-20T00:15:49.672493Z",
+      "generated_at": "2026-11-20T06:11:07.146149Z",
       "schema_version": 1,
       "source": "go.dev",
       "tool": "go",
@@ -18510,11 +18534,67 @@
       ]
     },
     "java": {
-      "generated_at": "2026-11-20T00:15:52.670676Z",
+      "generated_at": "2026-11-20T06:11:13.761307Z",
       "schema_version": 1,
       "source": "adoptium.net",
       "tool": "java",
       "versions": [
+        {
+          "artifacts": [
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "e4b834eb6aa7c4974116ff6b7222092f0f2ca98425c872f232f7c1e533ca5fa3",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-25.0.5.1-macos-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "c18f5bfd07a8226d20388011b0fa07e3600fc1728a5d637aebbf842242e8f266",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-25.0.5.1-macos-aarch64.tar.gz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "82ce06e0d21a65f9ea3e76f3a5adb07078505bdb364e38e184c15e0e3100609b",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-25.0.5.1-windows-x64.zip"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "a0fc659c6770e2c1a59329ae7dc5d080d4cc83230a62d78f7ffc77502ac3bba8",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-25.0.5.1-windows-aarch64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "linux",
+              "sha256": "5e63672ada97af95999c9552d6607fd39d3bb9c97c993d4da7d6b3298a448108",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-25.0.5.1-linux-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "linux",
+              "sha256": "b201ec22ca3a4333189ebbb3aef65362136961b12f96544559661f7962851c19",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-25.0.5.1-linux-aarch64.tar.gz"
+            }
+          ],
+          "distribution": "microsoft",
+          "lts": true,
+          "release_date": null,
+          "version": "25.0.5.1"
+        },
         {
           "artifacts": [
             {
@@ -18850,6 +18930,62 @@
           "lts": true,
           "release_date": null,
           "version": "25"
+        },
+        {
+          "artifacts": [
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "aa2becdfb080cbaa0e4694cc10623295ade4b50c004dcceb55b6befb1795625e",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-21.0.13.1-macos-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "7143871c53d952caaa5a47fdb172c931be0573abd8d67eebb5de87075014ca46",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-21.0.13.1-macos-aarch64.tar.gz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "071c10e8e7fa62cfef83137b152f5f40e37012dd48e4d5586c5125667cf0b8de",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-21.0.13.1-windows-x64.zip"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "f2b0a3b3f684131c209b3d0f886d985bc6f5a1861cb4c3a4ea1450dd00218e7d",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-21.0.13.1-windows-aarch64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "linux",
+              "sha256": "103575ed91ff84647f9f5630b94bc5d172faf95432633e77d54343f13bbd0362",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-21.0.13.1-linux-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "linux",
+              "sha256": "f85eb101982ca919acc17d779a80e89c0d3adc3f07b61860d31cdf26303ee2be",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-21.0.13.1-linux-aarch64.tar.gz"
+            }
+          ],
+          "distribution": "microsoft",
+          "lts": true,
+          "release_date": null,
+          "version": "21.0.13.1"
         },
         {
           "artifacts": [
@@ -19634,6 +19770,62 @@
           "lts": true,
           "release_date": null,
           "version": "21"
+        },
+        {
+          "artifacts": [
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "c430a3474f68cbaa50471b3291a951de408b3cb895943d0519369c75b81884d1",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-17.0.21.1-macos-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "dd01e975635e7d7d21f8862df63ec065c4dbf61a484c6c4468bb6ae022fc6986",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-17.0.21.1-macos-aarch64.tar.gz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "a07e270f86aec056d9c2acf981eb64a38e30814dacfadbc5f80f31c55d5a4427",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-17.0.21.1-windows-x64.zip"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "a352b538a9967a2361ed15ee3b560b1668e66ab89bdef4551ac2905c01cd9e57",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-17.0.21.1-windows-aarch64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "linux",
+              "sha256": "9143307aa5869cede4cbe09aac477256f08d8607e5c760dc040ef37ef2c2f5e7",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-17.0.21.1-linux-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "linux",
+              "sha256": "92427f17364dd508ddcd604dfa2a86fc9ec8c8d09364323ca7c15f63c5f6694a",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-17.0.21.1-linux-aarch64.tar.gz"
+            }
+          ],
+          "distribution": "microsoft",
+          "lts": true,
+          "release_date": null,
+          "version": "17.0.21.1"
         },
         {
           "artifacts": [
@@ -20810,6 +21002,62 @@
           "lts": true,
           "release_date": null,
           "version": "17.0.3"
+        },
+        {
+          "artifacts": [
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "322027d811eecc7078733c4024e86b7ee08db762e8a884fd02e8a37cbe17971c",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33.1-macos-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "macos",
+              "sha256": "1b516ffe4df3bcf3f916420b8887b865f6f54561e73bfc7f7e628d4d2179d7fd",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33.1-macos-aarch64.tar.gz"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "a1a1f6bebdd0cd4e15115e3c26b8f6769ac4b0d52056d6fb4a9df0b8499be1e5",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33.1-windows-x64.zip"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "windows",
+              "sha256": "8465210c214c4e96e1b88652e2f2073816ff0785adaad6c28c23e9ddd292bab8",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33.1-windows-aarch64.zip"
+            },
+            {
+              "arch": "x64",
+              "archive_type": "tar.gz",
+              "os": "linux",
+              "sha256": "aadc35414317a23db3827b284a5865fd74ec662f26c1f94f200136d9fc9248e3",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33.1-linux-x64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "archive_type": "tar.gz",
+              "os": "linux",
+              "sha256": "03b1a09eb3e274123434f9224dda3bafc675bfc5d8386db0b8bc12b1192b9136",
+              "size_bytes": null,
+              "url": "https://aka.ms/download-jdk/microsoft-jdk-11.0.33.1-linux-aarch64.tar.gz"
+            }
+          ],
+          "distribution": "microsoft",
+          "lts": true,
+          "release_date": null,
+          "version": "11.0.33.1"
         },
         {
           "artifacts": [
@@ -22046,7 +22294,7 @@
       ]
     },
     "node": {
-      "generated_at": "2026-11-20T00:18:50.567523Z",
+      "generated_at": "2026-11-20T06:12:59.607443Z",
       "schema_version": 1,
       "source": "nodejs.org",
       "tool": "node",
@@ -53198,21 +53446,21 @@
       ]
     },
     "python": {
-      "generated_at": "2026-11-20T00:15:51.948097Z",
+      "generated_at": "2026-11-20T06:11:10.765945Z",
       "schema_version": 1,
       "source": "python.org",
       "tool": "python",
       "versions": []
     },
     "ruby": {
-      "generated_at": "2026-11-20T00:15:51.873577Z",
+      "generated_at": "2026-11-20T06:11:09.399146Z",
       "schema_version": 1,
       "source": "cache.ruby-lang.org",
       "tool": "ruby",
       "versions": []
     },
     "rust": {
-      "generated_at": "2026-11-20T00:15:50.085755Z",
+      "generated_at": "2026-11-20T06:11:20.853932Z",
       "schema_version": 1,
       "source": "static.rust-lang.org",
       "tool": "rust",

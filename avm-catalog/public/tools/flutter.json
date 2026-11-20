@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T00:15:50.901333Z",
+  "generated_at": "2026-11-20T06:11:09.150443Z",
   "schema_version": 1,
   "source": "storage.googleapis.com/flutter_infra_release",
   "tool": "flutter",
@@ -7,17 +7,41 @@
     {
       "artifacts": [
         {
+          "arch": "x64",
+          "archive_type": "tar.xz",
+          "os": "linux",
+          "sha256": "4ad17fc8462fbcef2ba19ff4a78c0a16b7147fde1add8578e267ea62cdb92678",
+          "size_bytes": null,
+          "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/linux/flutter_linux_3.50.1-stable.tar.xz"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "zip",
+          "os": "macos",
+          "sha256": "5c3d3bbabc8edd58eb98605047c59c31a82895cfe7d119318d0f62cdbd5d47ed",
+          "size_bytes": null,
+          "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/macos/flutter_macos_3.50.1-stable.zip"
+        },
+        {
           "arch": "arm64",
           "archive_type": "zip",
           "os": "macos",
           "sha256": "872883d49965e0cc1d8e477d2d87f2f45930d13f94b34889e53783586f04c715",
           "size_bytes": null,
           "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/macos/flutter_macos_arm64_3.50.1-stable.zip"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "zip",
+          "os": "windows",
+          "sha256": "33c1e3d4dd08f1136ddb9c7976cfd2b0ab20296f1565b78ba176a4cbb4e140eb",
+          "size_bytes": null,
+          "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/windows/flutter_windows_3.50.1-stable.zip"
         }
       ],
       "distribution": "flutter",
       "lts": false,
-      "release_date": "2026-11-20T00:06:05.590406Z",
+      "release_date": "2026-11-20T00:24:27.186534Z",
       "version": "3.50.1"
     },
     {
