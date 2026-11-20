@@ -1,20 +1,36 @@
 {
-  "generated_at": "2026-11-19T18:11:26.967396Z",
+  "generated_at": "2026-11-20T00:19:00.745034Z",
   "schema_version": 1,
   "tools": {
     "dotnet": {
-      "generated_at": "2026-11-19T18:08:25.143762Z",
+      "generated_at": "2026-11-20T00:15:49.911200Z",
       "schema_version": 1,
       "source": "dotnet.microsoft.com",
       "tool": "dotnet",
       "versions": []
     },
     "flutter": {
-      "generated_at": "2026-11-19T18:08:27.701998Z",
+      "generated_at": "2026-11-20T00:15:50.901333Z",
       "schema_version": 1,
       "source": "storage.googleapis.com/flutter_infra_release",
       "tool": "flutter",
       "versions": [
+        {
+          "artifacts": [
+            {
+              "arch": "arm64",
+              "archive_type": "zip",
+              "os": "macos",
+              "sha256": "872883d49965e0cc1d8e477d2d87f2f45930d13f94b34889e53783586f04c715",
+              "size_bytes": null,
+              "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/macos/flutter_macos_arm64_3.50.1-stable.zip"
+            }
+          ],
+          "distribution": "flutter",
+          "lts": false,
+          "release_date": "2026-11-20T00:06:05.590406Z",
+          "version": "3.50.1"
+        },
         {
           "artifacts": [
             {
@@ -7498,7 +7514,7 @@
       ]
     },
     "go": {
-      "generated_at": "2026-11-19T18:08:24.409051Z",
+      "generated_at": "2026-11-20T00:15:49.672493Z",
       "schema_version": 1,
       "source": "go.dev",
       "tool": "go",
@@ -18494,7 +18510,7 @@
       ]
     },
     "java": {
-      "generated_at": "2026-11-19T18:08:29.914316Z",
+      "generated_at": "2026-11-20T00:15:52.670676Z",
       "schema_version": 1,
       "source": "adoptium.net",
       "tool": "java",
@@ -22030,7 +22046,7 @@
       ]
     },
     "node": {
-      "generated_at": "2026-11-19T18:11:04.843386Z",
+      "generated_at": "2026-11-20T00:18:50.567523Z",
       "schema_version": 1,
       "source": "nodejs.org",
       "tool": "node",
@@ -53182,21 +53198,21 @@
       ]
     },
     "python": {
-      "generated_at": "2026-11-19T18:08:25.768173Z",
+      "generated_at": "2026-11-20T00:15:51.948097Z",
       "schema_version": 1,
       "source": "python.org",
       "tool": "python",
       "versions": []
     },
     "ruby": {
-      "generated_at": "2026-11-19T18:08:25.339701Z",
+      "generated_at": "2026-11-20T00:15:51.873577Z",
       "schema_version": 1,
       "source": "cache.ruby-lang.org",
       "tool": "ruby",
       "versions": []
     },
     "rust": {
-      "generated_at": "2026-11-19T18:08:28.785206Z",
+      "generated_at": "2026-11-20T00:15:50.085755Z",
       "schema_version": 1,
       "source": "static.rust-lang.org",
       "tool": "rust",

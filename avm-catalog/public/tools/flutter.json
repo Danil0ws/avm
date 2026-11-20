@@ -1,9 +1,25 @@
 {
-  "generated_at": "2026-11-19T18:08:27.701998Z",
+  "generated_at": "2026-11-20T00:15:50.901333Z",
   "schema_version": 1,
   "source": "storage.googleapis.com/flutter_infra_release",
   "tool": "flutter",
   "versions": [
+    {
+      "artifacts": [
+        {
+          "arch": "arm64",
+          "archive_type": "zip",
+          "os": "macos",
+          "sha256": "872883d49965e0cc1d8e477d2d87f2f45930d13f94b34889e53783586f04c715",
+          "size_bytes": null,
+          "url": "https://storage.googleapis.com/flutter_infra_release/releasesstable/macos/flutter_macos_arm64_3.50.1-stable.zip"
+        }
+      ],
+      "distribution": "flutter",
+      "lts": false,
+      "release_date": "2026-11-20T00:06:05.590406Z",
+      "version": "3.50.1"
+    },
     {
       "artifacts": [
         {
