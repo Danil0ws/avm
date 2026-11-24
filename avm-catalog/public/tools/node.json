@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T12:13:41.424907Z",
+  "generated_at": "2026-11-24T18:10:16.930256Z",
   "schema_version": 1,
   "source": "nodejs.org",
   "tool": "node",
@@ -13691,6 +13691,54 @@
       "distribution": null,
       "release_date": "2022-03-17",
       "version": "16.14.2"
+    },
+    {
+      "artifacts": [
+        {
+          "arch": "arm64",
+          "archive_type": "tar.xz",
+          "os": "linux",
+          "sha256": "2d45cdfd1c2e24f8b3d8e75df40a76d73cad9a56c82f637962d931a7c937cd31",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v16.14.1/node-v16.14.1-linux-arm64.tar.xz"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "tar.xz",
+          "os": "linux",
+          "sha256": "acaa44a1a224265b238732ce5255d91429b25654de5be70f84a382cc5b6301c2",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v16.14.1/node-v16.14.1-linux-x64.tar.xz"
+        },
+        {
+          "arch": "arm64",
+          "archive_type": "tar.gz",
+          "os": "macos",
+          "sha256": "8f6d45796f3d996484dcf53bb0e53cd019cd0ef7a1a247bd0178ebaa7e63a184",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v16.14.1/node-v16.14.1-darwin-arm64.tar.gz"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "tar.gz",
+          "os": "macos",
+          "sha256": "af35abd727b051c8cdb8dcda9815ae93f96ef2c224d71f4ec52034a2ab5d8b61",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v16.14.1/node-v16.14.1-darwin-x64.tar.gz"
+        },
+        {
+          "arch": "x64",
+          "archive_type": "zip",
+          "os": "windows",
+          "sha256": "663b198c766f2ff60a34710c8e8f29f428f3920d8e268a26bed2591eb4020e2c",
+          "size_bytes": null,
+          "url": "https://nodejs.org/dist/v16.14.1/node-v16.14.1-win-x64.zip"
+        }
+      ],
+      "channel": "lts",
+      "distribution": null,
+      "release_date": "2022-03-16",
+      "version": "16.14.1"
     },
     {
       "artifacts": [
