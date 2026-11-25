@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-25T12:13:05.384885Z",
+  "generated_at": "2026-11-25T18:10:56.730216Z",
   "schema_version": 1,
   "tools": {
     "dotnet": {
-      "generated_at": "2026-11-25T12:10:32.714033Z",
+      "generated_at": "2026-11-25T18:08:10.121969Z",
       "schema_version": 1,
       "source": "dotnet.microsoft.com",
       "tool": "dotnet",
       "versions": []
     },
     "flutter": {
-      "generated_at": "2026-11-25T12:10:35.095615Z",
+      "generated_at": "2026-11-25T18:08:01.265790Z",
       "schema_version": 1,
       "source": "storage.googleapis.com/flutter_infra_release",
       "tool": "flutter",
@@ -7538,7 +7538,7 @@
       ]
     },
     "go": {
-      "generated_at": "2026-11-25T12:10:43.042773Z",
+      "generated_at": "2026-11-25T18:08:11.573776Z",
       "schema_version": 1,
       "source": "go.dev",
       "tool": "go",
@@ -18534,7 +18534,7 @@
       ]
     },
     "java": {
-      "generated_at": "2026-11-25T12:10:38.744210Z",
+      "generated_at": "2026-11-25T18:08:05.430400Z",
       "schema_version": 1,
       "source": "adoptium.net",
       "tool": "java",
@@ -22294,7 +22294,7 @@
       ]
     },
     "node": {
-      "generated_at": "2026-11-25T12:12:51.852993Z",
+      "generated_at": "2026-11-25T18:10:34.564116Z",
       "schema_version": 1,
       "source": "nodejs.org",
       "tool": "node",
@@ -53446,21 +53446,21 @@
       ]
     },
     "python": {
-      "generated_at": "2026-11-25T12:10:33.293998Z",
+      "generated_at": "2026-11-25T18:07:59.403374Z",
       "schema_version": 1,
       "source": "python.org",
       "tool": "python",
       "versions": []
     },
     "ruby": {
-      "generated_at": "2026-11-25T12:10:33.932314Z",
+      "generated_at": "2026-11-25T18:08:05.044358Z",
       "schema_version": 1,
       "source": "cache.ruby-lang.org",
       "tool": "ruby",
       "versions": []
     },
     "rust": {
-      "generated_at": "2026-11-25T12:10:33.755061Z",
+      "generated_at": "2026-11-25T18:08:00.137679Z",
       "schema_version": 1,
       "source": "static.rust-lang.org",
       "tool": "rust",
